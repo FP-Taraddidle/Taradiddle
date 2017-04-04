@@ -8,26 +8,15 @@ class SessionsController < ApplicationController
 
   @authorization = Authorization.find_by_provider_and_uid(auth_hash["provider"], auth_hash["uid"])
     if @authorization
-      render :text => "Welcome back #{@authorization.user.name}! You have already signed up."
+      render json: @user
     else
-      binding.pry
+      # binding.pry
       user = User.new :name => auth_hash["info"]["name"]
       user.authorizations.build :provider => auth_hash["provider"], :uid => auth_hash["uid"]
       user.save!
-
-      render :text => "Hi #{user.name}! You've signed up."
+      render json: @user
     end
   end
 
-  # def create
-  #   auth_hash = request.env['omniauth.auth']
-  #
-  #   render :text => auth_hash.inspect
-  # end
 
-  protected
-
-  # def auth_hash
-  #   request.env['omniauth.auth']
-  # end
 end
