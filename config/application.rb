@@ -6,12 +6,12 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-config.session_store :cookie_store, key: '_interslice_session'
-config.middleware.use ActionDispatch::Cookies # Required for all session management
-config.middleware.use ActionDispatch::Session::CookieStore, config.session_options
 
 module Taradiddle
   class Application < Rails::Application
+    config.session_store :cookie_store, key: '_interslice_session'
+    config.middleware.use ActionDispatch::Cookies # Required for all session management
+    config.middleware.use ActionDispatch::Session::CookieStore, config.session_options
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
