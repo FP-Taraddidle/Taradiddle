@@ -37,6 +37,7 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem "rails_12factor", group: :production
 gem 'omniauth'
 gem 'cloudinary'
 gem 'carrierwave'
@@ -45,6 +46,8 @@ gem 'pry-rails'
 gem 'bootstrap-sass'
 gem 'figaro'
 gem 'active_model_serializers'
+gem 'omniauth-twitter', :github => 'arunagw/omniauth-twitter'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
