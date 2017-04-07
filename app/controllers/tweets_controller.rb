@@ -8,7 +8,7 @@ class TweetsController < ApplicationController
 
   def favorites
     user = User.find(params[:id])
-    @favorites = twitter_client.favorites(user.name, count: 20).find_by(created_at: params[:created_at])
+    @favorites = twitter_client.favorites(user.name, count: 20)
     render json: @favorites
   end
 

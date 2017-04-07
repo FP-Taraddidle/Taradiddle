@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   match '/auth/:provider/callback', :to => 'sessions#create', via: 'get'
   match '/auth/failure', :to => 'sessions#failure', via: 'get'
 
-  get '/posts' => 'posts#show'
+  get '/tweets' => 'tweets#show'
   get '/tweets/favorites' => 'tweets#favorites'
   resources :users
 
