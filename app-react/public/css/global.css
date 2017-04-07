@@ -1,0 +1,111 @@
+/*All of the Website*/
+*{
+    box-sizing: border-box;
+}
+img {
+    width: 100%;
+}
+body {
+    background-color: #f1f0de;
+}
+
+
+/*Navbar*/
+    /*More fonts that can be used*/
+
+    /*font-family: 'Luckiest Guy', cursive;*/
+    /*font-family: 'Unica One', cursive;*/
+    /*font-family: 'Permanent Marker', cursive;*/
+.navbar {
+    background-color: #de300c;
+}
+.projectName {
+    font-size: 30px;
+    font-family: 'Rock Salt', cursive;
+    color: #1E3888;
+}
+.nav-menu a {
+    color: white;
+}
+
+
+/*Welcome page*/
+.welcomeBackground {
+    /*background-image: url("/img/linedpaper/linedpaper.png");*/
+    /*background-image: url("/img/handcircle_wallpaper.png");*/
+    /*background-image: url("/img/Notebook.png");*/
+    /*background-image: url("/img/SlaveKingGod.png");*/
+    background-image: url("/img/yell_wallpaper.png");
+    /*background-image: url("/img/41738_nature_dark_green_grass.jpg");*/
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.welcomeIcon {
+    width: 50px;
+}
+.welcomeContent {
+    margin-left: 40px;
+}
+.about {
+    margin-top: 20px;
+    /*color: white;*/
+}
+/*.welcomeContent div{
+    margin-top: 40px;
+}*/
+.welcomeTitle {
+    font-family: 'Luckiest Guy', cursive;
+    /*color: white;*/
+}
+.howDoesItWork {
+    margin-left: 80px;
+    /*color: white;*/
+}
+.toGetStarted {
+    margin-left: 180px;
+    /*color: white;*/
+}
+.sign-up{
+    background-color: dodgerblue;
+    margin-left: 180px;
+    color: white;
+}
+
+
+/*Workout Page*/
+.square1 {
+    background-color: yellow;
+    height: 400px;
+}
+.square2 {
+    /*background-color: lightblue;*/
+}
+.square3 {
+    background-color: indianred;
+    height: 400px;
+}
+.square4 {
+    background-color: lightgreen;
+}
+#output {
+	font-size: 4.5em;
+    padding: 80px 0px 0px 50px;
+}
+.workoutImage {
+    width: 400px;
+}
+button {
+	font-size: 30px;
+	width: 140px;
+	height: 60px;
+	border-radius: 5px;
+}
+#startPause {
+   	background-color: green;
+	border-color: green;
+}
+#controls {
+     padding: 0px 0px 0px 140px;
+}
