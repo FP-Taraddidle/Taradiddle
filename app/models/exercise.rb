@@ -1,3 +1,3 @@
 class Exercise < ApplicationRecord
-  belongs_to :block
+  has_many :blocks
 end

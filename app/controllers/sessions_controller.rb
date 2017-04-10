@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
 
   @authorization = Authorization.find_by_provider_and_uid(auth_hash["provider"], auth_hash["uid"])
     if @authorization
-      render json: @user
+      render text: "existing user"
     else
       # binding.pry
       user = User.new :name => auth_hash["info"]["name"]
@@ -22,7 +22,7 @@ class SessionsController < ApplicationController
 
 
       user.save!
-      render json: @user
+      render text: "new user created"
       # need route to redirect user to collect email here
     end
   end

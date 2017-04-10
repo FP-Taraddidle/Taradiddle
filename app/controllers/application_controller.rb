@@ -2,7 +2,7 @@ require 'twitter'
 class ApplicationController < ActionController::Base
 
   def current_user
-    @current_user ||= User.find_by(api_token: params[:api_token]) if params[:api_token]
+    @current_user ||= User.find_by(oauth_token: params[:oauth_token]) if params[:oauth_token]
   end
 
   def twitter_client
