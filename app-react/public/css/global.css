@@ -41,9 +41,10 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  padding-bottom: 80px;
 }
 .welcomeIcon {
-    width: 50px;
+    width: 100px;
 }
 .welcomeContent {
     margin-left: 40px;

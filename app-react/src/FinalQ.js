@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+// import { browserHistory } from 'react-router'f
 
 class FinalQ extends Component {
   render() {
@@ -9,10 +10,10 @@ class FinalQ extends Component {
                     <span className="select">
                     <select>
                         <option>Select option</option>
-                        <option>Active</option>
-                        <option>Moderately Active</option>
-                        <option>Not Active</option>
-                        <option>Couch Potato</option>
+                        <option>Great</option>
+                        <option>Exhausting</option>
+                        <option>I think I'm dying</option>
+                        <option>What the F*@k did I just do?</option>
                     </select>
                     </span>
                 </p><br/>
@@ -21,8 +22,8 @@ class FinalQ extends Component {
                     <span className="select">
                     <select>
                         <option>Select option</option>
-                        <option>Morning</option>
-                        <option>Evening</option>
+                        <option>Probably not</option>
+                        <option>Probably should</option>
                     </select>
                     </span>
                 </p>

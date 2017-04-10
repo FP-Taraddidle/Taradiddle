@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+// import { browserHistory } from 'react-router'
 
 class Workout extends Component {
 //     constructor (){
@@ -91,8 +92,8 @@ class Workout extends Component {
                 </div>
             </div>
             <div className="column is-8 square2">
-                <img className="is-mobile workoutImage" src="http://unsplash.it/200/200random?" />
-                <img className="workoutImage" src="http://unsplash.it/200/200random?" />
+                <img className="is-mobile workoutImage" src="http://unsplash.it/200/200random?" alt="" />
+                <img className="workoutImage" src="http://unsplash.it/200/200random?" alt="" />
             </div>
             <div className="column is-4 square3">
                 <div className="container">
