@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170405200657) do
+ActiveRecord::Schema.define(version: 20170410132354) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +54,24 @@ ActiveRecord::Schema.define(version: 20170405200657) do
     t.index ["user_id"], name: "index_routines_on_user_id", using: :btree
   end
 
+  create_table "twitter_data", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "tweets"
+    t.integer  "likes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_twitter_data_on_user_id", using: :btree
+  end
+
+  create_table "twitterings", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "tweets"
+    t.integer  "likes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_twitterings_on_user_id", using: :btree
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "username"
     t.string   "password"
@@ -66,4 +84,6 @@ ActiveRecord::Schema.define(version: 20170405200657) do
   add_foreign_key "blocks", "routines"
   add_foreign_key "exercises", "blocks"
   add_foreign_key "routines", "users"
+  add_foreign_key "twitter_data", "users"
+  add_foreign_key "twitterings", "users"
 end
