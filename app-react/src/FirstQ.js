@@ -4,10 +4,10 @@ import React, { Component } from 'react'
 class FirstQ extends Component {
 
     // getTime() {
-    //     if (innerHtml === 'Morning') {
+    //     if (option.innerHTML === 'Morning') {
 
     //     }
-    //     if (innerHtml === 'Evening') {
+    //     if (option.innerHTML === 'Evening') {
             
     //     }
     // }
@@ -22,8 +22,8 @@ class FirstQ extends Component {
                     <select>
                         <option>Select option</option>
                         <option>Extremely Active</option>
-                        <option>Kind of Active</option>
-                        <option>Not Active at all</option>
+                        <option>Kind Of Active</option>
+                        <option>Not Active At All</option>
                     </select>
                     </span>
                 </p><br/>

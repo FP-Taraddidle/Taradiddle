@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 // import Routes from './Routes'
 
 import Navbar from './Navbar'
-import Welcome from  './Welcome'
+import Welcome from './Welcome'
 import Profile from './Profile'
 import Workout from './Workout'
 import FirstQ from './FirstQ'
@@ -35,7 +35,8 @@ class App extends Component {
   }
 
   getAuth() {
-    fetch('/auth/twitter')
+    // redirect
+    ('/auth/twitter')
     .then(res => res.json())
     .then(res => console.log(res))
     // .then(res => this.setState({userName: res}))
@@ -62,6 +63,10 @@ class App extends Component {
     .then(res => res.json())
     .then(res => this.setState({userInfo: res}))
  }
+
+//  componentWillMount() {
+//    this.getAuth()
+//  }
 
   render() {
     return (

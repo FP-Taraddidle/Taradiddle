@@ -1,4 +1,4 @@
-/*All of the Website*/
+/* All of the Website */
 *{
     box-sizing: border-box;
 }
@@ -10,26 +10,26 @@ body {
 }
 
 
-/*Navbar*/
+/* NAVBAR */
     /*More fonts that can be used*/
 
     /*font-family: 'Luckiest Guy', cursive;*/
     /*font-family: 'Unica One', cursive;*/
     /*font-family: 'Permanent Marker', cursive;*/
 .navbar {
-    background-color: #de300c;
+    background-color: #EE6352;
 }
 .projectName {
     font-size: 30px;
     font-family: 'Rock Salt', cursive;
-    color: #1E3888;
+    color: #EFE9F4;
 }
 .nav-menu a {
     color: white;
 }
 
 
-/*Welcome page*/
+/* WEBSITE PAGE */
 .welcomeBackground {
     /*background-image: url("/img/linedpaper/linedpaper.png");*/
     /*background-image: url("/img/handcircle_wallpaper.png");*/
@@ -41,16 +41,16 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  padding-bottom: 80px;
+  padding-bottom: 30px;
 }
 .welcomeIcon {
-    width: 100px;
+    width: 115px;
 }
 .welcomeContent {
     margin-left: 40px;
 }
 .about {
-    margin-top: 20px;
+    /*margin-top: 20px;*/
     /*color: white;*/
 }
 /*.welcomeContent div{
@@ -75,17 +75,17 @@ body {
 }
 
 
-/*Workout Page*/
+/* WORKOUT PAGE */
 .square1 {
     background-color: yellow;
-    height: 400px;
+    height: 385px;
 }
 .square2 {
     /*background-color: lightblue;*/
 }
 .square3 {
     background-color: indianred;
-    height: 400px;
+    height: 385px;
 }
 .square4 {
     background-color: lightgreen;
@@ -95,7 +95,8 @@ body {
     padding: 80px 0px 0px 50px;
 }
 .workoutImage {
-    width: 400px;
+    width: 480px;
+    height: 380px;
 }
 button {
 	font-size: 30px;
@@ -110,3 +111,9 @@ button {
 #controls {
      padding: 0px 0px 0px 140px;
 }
+
+/* USER_PROFILE */
+
+/* FIRSTQ */
+
+/* FINALQ */

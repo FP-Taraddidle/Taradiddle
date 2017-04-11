@@ -15,7 +15,7 @@ class Navbar extends Component {
       <span></span>
     </span>
     <div className="nav-right nav-menu">
-      <a className="nav-item is-tab">Sign-in</a>
+      {/* <a className="nav-item is-tab">Sign-in</a> */}
       <a className="nav-item is-tab">Log out</a>
     </div>
   </div>

@@ -1,44 +1,14 @@
 import React, { Component } from 'react'
-// import { browserHistory } from 'react-router'
+import { router, browserHistory } from 'react-router'
 
 class Welcome extends Component {
 
 constructor(props) {
-        super(props)
+        super(props)      
 
-        // Custom methods
-        this.getAuth = this.getAuth.bind(this)
-        this.getTweets = this.getTweets.bind(this)
-        // this.getProduct = this.getProduct.bind(this)
-        // this.filterProducts = this.filterProducts.bind(this)
-        // this.getCart = this.getCart.bind(this)
-        // this.addToCart = this.addToCart.bind(this)
-        // this.checkout = this.checkout.bind(this)
 
-        // Master state
-        this.state = {
-            userInfo: [],
-            // originalProducts: [],
-            // products: [],
-            // product: {},
-            // cart: [],
-            // message: ''
-        }
   }
-
-  getAuth() {
-    fetch('/auth/twitter')
-    // .then(res => res.json())
-    // .then(res => console.log(res))
-    // .then(res => this.setState({userName: res}))
-  }
-    
- getTweets() {
-    fetch('/tweets')
-    .then(res => res.json())
-    .then(res => this.setState({userInfo: res}))
- }
-
+ 
   render() {
     return <div className="welcomeBackground">
     <div className="welcomeContent">
@@ -66,13 +36,20 @@ constructor(props) {
             </ul>
     </div>
     <div>
-        <a className="button sign-up" onClick={() => console.log("Hello")}>
+        <a className="button sign-up" onClick={() => location.href='/auth/twitter'}>
+            <span className="icon">
+            <i className="fa fa-twitter"></i>
+            </span>
+            <span>Sign-in with Twitter</span>
+        </a>
+        <a className="button sign-up">
             <span className="icon">
             <i className="fa fa-twitter"></i>
             </span>
             <span>Sign-up with Twitter</span>
         </a>
     </div>
+ 
     </div>
 </div>
 

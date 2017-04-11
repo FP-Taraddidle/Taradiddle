@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import { browserHistory } from 'react-router'
+// import { browserHistory } frrom 'react-router'
 
 class Workout extends Component {
 //     constructor (){
@@ -15,6 +15,7 @@ class Workout extends Component {
 //             timer: document.querySelector("output")
 //         }
 //     }    
+
 //     componentDidMount (){
         
 //     }
@@ -103,7 +104,7 @@ class Workout extends Component {
                     </div>
                 </div>
             </div>
-            <div className="column is-8 square4">4</div>
+            <div className="column is-8 square4"></div>
         </div>
   }
 }
