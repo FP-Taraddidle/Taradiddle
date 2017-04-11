@@ -11,32 +11,19 @@ class TwitteringsController < ApplicationController
   end
 
   def index
-    
-
+    if current_user
+      @twittering = current_user.user.twitterings
+    end
+    render json: @twittering
   end
 
   def show
-    user = User.find(params[:id])
-    tweet_arr = twitter_client.user_timeline(user.name, count: 20).collect{|i| i.created_at}
-    @tweets = tweet_arr.select { |i| i if i > 24.hours.ago }.count
-    render json: @tweets
+    if current_user
+      @twittering = current_user.user.twitterings.last
+    end
+    render json: @twittering
   end
 
-  def tweeting
-    user = User.find(params[:id])
-    tweet_arr = twitter_client.user_timeline(user.name, count: 20).collect{|i| i.created_at}
-    @tweets = tweet_arr.select { |i| i if i > 24.hours.ago }.count
-  end
-
-  def new
-    @twitter = Twittering.new.(params[:user_id])
-  end
-
-  def liking
-    user = User.find(params[:id])
-    like_arr = twitter_client.favorites(user.name, count: 20).collect{|i| i.created_at}
-    @likes = like_arr.select { |i| i if i > 24.hours.ago }.count
-  end
 
 
 end
