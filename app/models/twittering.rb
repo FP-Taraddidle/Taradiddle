@@ -13,10 +13,4 @@ class Twittering < ApplicationRecord
     @tweets = tweet_arr.select { |i| i if i > 24.hours.ago }.count
   end
 
-  def self.timeline(auth)
-    twitter_ids = auth.user.twitterings
-    all_ids = twitter_ids << user.id
-    Twittering.where(id: all_ids).order("created_at DESC")
-  end
-
 end
