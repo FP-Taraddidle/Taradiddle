@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-// import Routes from './Routes'
+import Routes from './Routes'
 
 import Navbar from './Navbar'
-import Welcome from  './Welcome'
+import Welcome from './Welcome'
 import Profile from './Profile'
 import Workout from './Workout'
 import FirstQ from './FirstQ'
@@ -15,7 +15,6 @@ class App extends Component {
         super(props)
 
         // Custom methods
-        this.getAuth = this.getAuth.bind(this)
         this.getUser = this.getUser.bind(this)
         this.getTwitterSignup = this.getTwitterSignup.bind(this)
         this.getTweetCount= this.getTweetCount.bind(this)
@@ -34,16 +33,10 @@ class App extends Component {
         }
   }
 
-  getAuth() {
-    fetch('/auth/twitter')
+  getUser() {
+    fetch('/api/users/:id')
     .then(res => res.json())
     .then(res => console.log(res))
-    // .then(res => this.setState({userName: res}))
-  }
-
-  getUser() {
-    fetch('/users/:id')
-    .then(res => res.json())
   }
 
   getTwitterSignup() {
@@ -63,13 +56,17 @@ class App extends Component {
     .then(res => this.setState({userInfo: res}))
  }
 
+//  componentWillMount() {
+//    this.getAuth()
+//  }
+
   render() {
     return (
       <div className="App">
-        <Navbar />
+        {location.href.includes('workout') ? '' : <Navbar />}
         <br/>
         <br/>
-        <Welcome />
+        {this.props.children}
       </div>
     )
   }

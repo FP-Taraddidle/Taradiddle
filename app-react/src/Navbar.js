@@ -8,6 +8,9 @@ class Navbar extends Component {
       <p className="nav-item projectName">
         Taradiddle
       </p>
+      <p className="">
+        Run more than your mouth
+      </p>
     </div>
     <span className="nav-toggle">
       <span></span>
@@ -15,7 +18,7 @@ class Navbar extends Component {
       <span></span>
     </span>
     <div className="nav-right nav-menu">
-      <a className="nav-item is-tab">Sign-in</a>
+      {/* <a className="nav-item is-tab">Sign-in</a> */}
       <a className="nav-item is-tab">Log out</a>
     </div>
   </div>
