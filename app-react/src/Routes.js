@@ -20,7 +20,7 @@ import FinalQ from './FinalQ'
 class Routes extends React.Component {
     render() {
         return <Provider store={store}>
-            <Router history={history}>
+            <Router history={browserHistory}>
                 <Route path="/" component={Welcome} />
                 <Route path="/Workout" component={Workout} />
                 <Route path="/FirstQ" component={FirstQ} />

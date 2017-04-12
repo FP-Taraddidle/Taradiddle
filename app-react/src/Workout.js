@@ -2,105 +2,126 @@ import React, { Component } from 'react'
 // import { browserHistory } frrom 'react-router'
 
 class Workout extends Component {
-//     constructor (){
-//         super()
-//         this.state  = {             
-//             mins: '',
-//             secs: '',
-//             tenths: '', 
-//             exercise: '',
-//             time: '',
-//             running: '',
-//             increment: '',
-//             timer: document.querySelector("output")
-//         }
-//     }    
 
-//     componentDidMount (){
+    constructor() {
+    super();
+    this.state = { time: {}, seconds: 300 };
+    this.timer = 0;
+    this.running = 0;
+    this.startTimer = this.startTimer.bind(this);
+    // this.pauseTimer - this.pauseTimer.bind(this)
+    this.countDown = this.countDown.bind(this);
+
+    // this.time = 0;
+    // this.running = 0;
+    // this.min = 0;
+    // this.sec = 0;
+    // this.tenths = 0;
+    // this.reset;
+  }
+
+    // increment(){
+	// if(running === 1){
+	// 	setTimeout(function(){
+	// 		sec--;
+	// 		let mins = Math.floor(time/10/60);
+	// 		let secs = Math.floor(time/10 % 60);
+	// 		let tenths = time % 10;
+	// 		if(mins < 10){
+	// 			mins = "0" + mins;
+	// 		} 
+	// 		if(secs < 10){
+	// 			secs = "0" + secs;
+	// 		}
+	// 		if (sec <= 0) {
+	// 			sec = 59
+	// 			min--
+	// 		}
+	// 		document.getElementById("output").innerHTML = min + ":" + sec + ":";
+	// 		increment();
+	// 	},100);
+	// }
+
+
+    secondsToTime(secs){
+        let hours = Math.floor(secs / (60 * 60));
+
+        let divisor_for_minutes = secs % (60 * 60);
+        let minutes = Math.floor(divisor_for_minutes / 60);
+
+        let divisor_for_seconds = divisor_for_minutes % 60;
+        let seconds = Math.ceil(divisor_for_seconds);
+
+        let obj = {
+          "h": hours,
+          "m": minutes,
+          "s": seconds
+        };
+        return obj;
+    }   
+
+    componentDidMount() {
+        let timeLeftVar = this.secondsToTime(this.state.seconds);
+        this.setState({ time: timeLeftVar });
+    }
+
+    startTimer() {
+        if (this.timer === 0) {
+        this.timer = setInterval(this.countDown, 1000);
+        }
+    }
+    pauseTimer() {
+        if (this.timer === 1) {
+            this.timer = this.countDown
+        }
+    }
+
+    countDown() {
+        // Remove one second, set state so a re-render happens.
+        let seconds = this.state.seconds - 1;
+        this.setState({
+        time: this.secondsToTime(seconds),
+        seconds: seconds,
+        });
         
-//     }
+        // Check if we're at zero.
+        if (seconds === 0) { 
+        clearInterval(this.timer);
+        }
+    }
 
-//     startPause(){
-//     if(running === 0){
-// 		running = 1;
-//         increment();
-//         document.querySelector("start").innerHTML = "Pause";
-//         document.querySelector("startPause").style.backgroundColor = "red";	
-//         document.querySelector("startPause").style.borderColor = "red";
-//         document.querySelector("startPause").style.borderColor = "red";
-//         } 
-//     else if (running === 1) {
-// 		running = 0;
-//         document.querySelector("start").innerHTML = "Resume";	
-//         document.querySelector("startPause").style.backgroundColor = "green";	
-//         document.querySelector("startPause").style.borderColor = "green";
-//         setTimeout(reset, 15000);
-//         }
-// }
+//   exercise() {
+ 
+//   }
 
-// // document.querySelector('#startPause').addEventListener('dblclick', function reset(){
-// //     running = 0;
-// // 	time = 0;
-// // 	document.querySelector("start").innerHTML = "Start";
-// // 	document.querySelector("output").innerHTML = "00:00";
-// // 	document.querySelector("startPause").style.backgroundColor = "green";	
-// // 	document.querySelector("startPause").style.borderColor = "green";
-// // });
+//   block() {
 
-// increment(){
-// 	if(running === 1){
-// 		setTimeout(function(){
-// 			secs--;
-//             // colorChange();
-// 			// var mins = Math.floor(time/10/60);
-// 			// var secs = Math.floor(time/10 % 60);
-// 			// var tenths = time % 10;
-// 			// if(mins < 10){
-// 			// 	mins = "0" + mins;
-// 			// } 
-// 			// if(secs < 10){
-// 			// 	secs = "0" + secs;
-// 			// }
-// 			if (secs <= 0) {
-// 				secs = 59
-// 				mins--
-// 			}
-// 			document.querySelector("output").innerHTML = mins + ":" + secs;
-// 			increment();
-// 		},1000);
-// 	}
-// }
+//   }
 
-// reset(e){
-//     if (document.querySelector("start") === "Resume")
-//     running = 0;
-// 	time = 0;
-// 	document.querySelector("start").innerHTML = "Start";
-// 	document.querySelector("output").innerHTML = "00:00";
-// 	document.querySelector("startPause").style.backgroundColor = "green";	
-// 	document.querySelector("startPause").style.borderColor = "green";
-//     document.querySelector("output").style.color = "black";
-// }
+//   rest() {
+
+//   }
 
   render() {
     return <div className="columns is-multiline is-gapless is-mobile">
             <div className="column is-4 square1">
                 <div className="container">
-                    <h1><p id="output"><b>12:00:00</b></p></h1>
+                    <h1><p id="output"><b>{this.state.time.m} : {this.state.time.s}</b></p></h1>
                     <div id="controls">
-	                    <button id="startPause" onclick="startPause()"><b id="start">Start</b></button>
+	                    <button id="startPause"><b id="start">Start</b></button>
                     </div>
+                
                 </div>
             </div>
             <div className="column is-8 square2">
-                <img className="is-mobile workoutImage" src="http://unsplash.it/200/200random?" alt="" />
-                <img className="workoutImage" src="http://unsplash.it/200/200random?" alt="" />
+                <img className="is-mobile workoutImage" src="http://unsplash.it/200/200random?" alt="workout1" />
+                <img className="workoutImage" src="http://unsplash.it/200/200random?" alt="workout2" />
             </div>
             <div className="column is-4 square3">
                 <div className="container">
-                    <h1><p id="output"><b>04:00:00</b></p></h1>
+                    <h1><p id="output"><b>{this.state.time.m} : {this.state.time.s}</b></p></h1>
                     <div id="controls">
-	                    <button id="startPause" onclick="startPause()"><b id="start">Start</b></button>
+	                    <button id="startPause" onClick={this.startTimer}><b id="start">Start</b></button>
                     </div>
                 </div>
             </div>

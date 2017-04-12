@@ -8,6 +8,9 @@ class Navbar extends Component {
       <p className="nav-item projectName">
         Taradiddle
       </p>
+      <p className="">
+        Run more than your mouth
+      </p>
     </div>
     <span className="nav-toggle">
       <span></span>

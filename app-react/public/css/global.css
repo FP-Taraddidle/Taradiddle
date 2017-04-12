@@ -78,14 +78,14 @@ body {
 /* WORKOUT PAGE */
 .square1 {
     background-color: yellow;
-    height: 385px;
+    height: 390px;
 }
 .square2 {
     /*background-color: lightblue;*/
 }
 .square3 {
     background-color: indianred;
-    height: 385px;
+    height: 390px;
 }
 .square4 {
     background-color: lightgreen;
@@ -96,7 +96,7 @@ body {
 }
 .workoutImage {
     width: 480px;
-    height: 380px;
+    height: 384px;
 }
 button {
 	font-size: 30px;

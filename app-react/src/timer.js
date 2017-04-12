@@ -32,13 +32,6 @@ document.querySelector('#startPause').addEventListener('dblclick', function rese
 	document.getElementById("startPause").style.borderColor = "green";
 });
 
-// function colorChange() {
-//         var red = Math.round(Math.random() * 255);
-//         var green = Math.round(Math.random() * 255);
-//         var blue = Math.round(Math.random() * 255);
-//         document.getElementById("output").style.color = `rgb(${red}, ${green}, ${blue})`;
-// }
-
 function increment(){
 	if(running == 1){
 		setTimeout(function(){

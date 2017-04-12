@@ -42,31 +42,53 @@ class FirstQ extends Component {
             <label className="label">What time?</label>
             <p className="control morningTime">
                 <span className="select">
-                <select>
-                    <option>Select option</option>
-                    <option>4:30am</option>
-                    <option>5:00am</option>
-                    <option>5:30am</option>
-                    <option>6:00am</option>
-                    <option>6:30am</option>
-                    <option>7:00am</option>
-                    <option>7:30am</option>
-                    <option>8:00am</option>
-                    <option>8:30am</option>
-                    <option>9:30am</option>
-                    <option>10:00am</option>
-                    <option>10:30am</option>
-                    <option>11:00am</option>
-                    <option>11:30am</option>
-                </select>
+                    <select>
+                        <option>Select option</option> 
+                        <option>4:30am</option>
+                        <option>5:00am</option>
+                        <option>5:30am</option>
+                        <option>6:00am</option>
+                        <option>6:30am</option>
+                        <option>7:00am</option>
+                        <option>7:30am</option>
+                        <option>8:00am</option>
+                        <option>8:30am</option>
+                        <option>9:30am</option>
+                        <option>10:00am</option>
+                        <option>10:30am</option>
+                        <option>11:00am</option>
+                        <option>11:30am</option>
+                    </select>
                 </span>
             </p>
+            <p className="control eveningTime">
+                <span className="select">
+                    <select>
+                        <option>Select option</option>  
+                        <option>4:30pm</option>
+                        <option>5:00pm</option>
+                        <option>5:30pm</option>
+                        <option>6:00pm</option>
+                        <option>6:30pm</option>
+                        <option>7:00pm</option>
+                        <option>7:30pm</option>
+                        <option>8:00pm</option>
+                        <option>8:30pm</option>
+                        <option>9:30pm</option>
+                        <option>10:00pm</option>
+                        <option>10:30pm</option>
+                        <option>11:00pm</option>
+                        <option>11:30pm</option>   
+                    </select>
+                </span> 
+            </p>
 
-            <label className="label">Time</label>
+            {/* <label className="label">Time</label>
             <p className="control eveningTime">
                 <span className="select">
                 <select>
                     <option>Select option</option>
+                <div id="evening-time "className="is-hidden">   
                     <option>4:30pm</option>
                     <option>5:00pm</option>
                     <option>5:30pm</option>
@@ -81,9 +103,10 @@ class FirstQ extends Component {
                     <option>10:30pm</option>
                     <option>11:00pm</option>
                     <option>11:30pm</option>
+                </div>     
                 </select>
-                </span>
-            </p>
+                </span> 
+            </p> */}
 
         </div>
     </div>        
