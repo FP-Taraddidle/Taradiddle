@@ -4,7 +4,7 @@ import React, { Component } from 'react'
 class Workout extends Component {
 
     constructor() {
-    super();
+    super()
     this.state = { time: {}, seconds: 300 };
     this.timer = 0;
     this.running = 0;
@@ -12,36 +12,56 @@ class Workout extends Component {
     // this.pauseTimer - this.pauseTimer.bind(this)
     this.countDown = this.countDown.bind(this);
 
-    // this.time = 0;
-    // this.running = 0;
-    // this.min = 0;
-    // this.sec = 0;
-    // this.tenths = 0;
-    // this.reset;
+    // this.time = 0
+    // this.running = 0
+    // this.min = 0
+    // this.sec = 0
+    // this.tenths = 0
+    
+    // this.decrement = this.decrement.bind(this)
+    // this.startPause = this.startPause.bind(this)
   }
 
-    // increment(){
-	// if(running === 1){
-	// 	setTimeout(function(){
-	// 		sec--;
-	// 		let mins = Math.floor(time/10/60);
-	// 		let secs = Math.floor(time/10 % 60);
-	// 		let tenths = time % 10;
-	// 		if(mins < 10){
-	// 			mins = "0" + mins;
+    // startPause(){
+    //         if(this.running === 0){
+    //         this.running = 1;
+    //         this.decrement();
+    //     // document.getElementById("start").innerHTML = "Pause";
+    //     // document.getElementById("startPause").style.backgroundColor = "red";	
+    //     // document.getElementById("startPause").style.borderColor = "red";
+    //     // document.getElementById("startPause").style.borderColor = "red";
+    //     }
+    //     else if (this.running === 1) {
+    //         this.running = 0;
+    //     // document.getElementById("start").innerHTML = "Resume";	
+    //     // document.getElementById("startPause").style.backgroundColor = "green";	
+    //     // document.getElementById("startPause").style.borderColor = "green";
+    //     // setTimeout(reset, 15000);
+    //     }
+    // }
+
+    // decrement(){
+	// if(this.running === 1){
+	// 	setTimeout(() => {
+	// 		this.sec--;
+	// 		this.mins = Math.floor(this.time/10/60);
+	// 		this.secs = Math.floor(this.time/10 % 60);
+	// 		this.tenths = this.time % 10;
+	// 		if(this.mins < 10){
+	// 			this.mins = "0" + this.mins;
 	// 		} 
-	// 		if(secs < 10){
-	// 			secs = "0" + secs;
+	// 		if(this.secs < 10){
+	// 			this.secs = "0" + this.secs;
 	// 		}
-	// 		if (sec <= 0) {
-	// 			sec = 59
-	// 			min--
+	// 		if (this.sec <= 0) {
+	// 			this.sec = 59
+	// 			this.min--
 	// 		}
-	// 		document.getElementById("output").innerHTML = min + ":" + sec + ":";
-	// 		increment();
+	// 		// document.querySelector("output").innerHTML = min + ":" + sec + ":";
+	// 		// this.decrement();
 	// 	},100);
 	// }
-
+    // }
 
     secondsToTime(secs){
         let hours = Math.floor(secs / (60 * 60));
@@ -90,17 +110,17 @@ class Workout extends Component {
         }
     }
 
-//   exercise() {
- 
-//   }
+    //   exercise() {
+    
+    //   }
 
-//   block() {
+    //   block() {
 
-//   }
+    //   }
 
-//   rest() {
+    //   rest() {
 
-//   }
+    //   }
 
   render() {
     return <div className="columns is-multiline is-gapless is-mobile">
