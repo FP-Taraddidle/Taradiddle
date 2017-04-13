@@ -10,6 +10,10 @@
 > GET 'api/twitter/signup'
 + Redirects the user to the Twitter Sign Up page, in case they do not have an account before entering our site.
 
+#### User Update for email/questionnaire
+> PUT '/api/users/:id'
++ Email and Intensity are the only parameters you can pass in for a given user ID
+
 #### Users Information
 > GET '/api/users/:id'
 + This will grab a single user as specified by their ID and will return all their information.
