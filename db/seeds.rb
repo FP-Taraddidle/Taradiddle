@@ -6,6 +6,19 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+10.times do
+  block = Block.create!(
+
+    api_token: SecureRandom.uuid,
+    username: Faker::Internet.user_name,
+    email: Faker::Internet.safe_email,
+    password: '1234'
+    )
+end
+
+
+
+
 require 'csv'
 
 csv_text = File.read(Rails.root.join('lib', 'seeds', 'exercises.csv'))
