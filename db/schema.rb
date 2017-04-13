@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170413141928) do
+ActiveRecord::Schema.define(version: 20170413172334) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,9 +78,11 @@ ActiveRecord::Schema.define(version: 20170413141928) do
 
   create_table "users", force: :cascade do |t|
     t.string   "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.string   "name"
+    t.integer  "intensity_id"
+    t.index ["intensity_id"], name: "index_users_on_intensity_id", using: :btree
   end
 
   add_foreign_key "blocks", "routines"
@@ -88,4 +90,5 @@ ActiveRecord::Schema.define(version: 20170413141928) do
   add_foreign_key "routines", "users"
   add_foreign_key "twitter_data", "users"
   add_foreign_key "twitterings", "users"
+  add_foreign_key "users", "intensities"
 end

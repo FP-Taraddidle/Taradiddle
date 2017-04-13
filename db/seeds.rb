@@ -8,6 +8,7 @@
 
 10.times do
   block = Block.create!(
+  
 
     api_token: SecureRandom.uuid,
     username: Faker::Internet.user_name,

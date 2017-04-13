@@ -10,16 +10,19 @@ class UsersController < ApplicationController
     render json: @user
   end
 
-  def updated
-
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      redirect_to "/"
+    else
+      redirect_to "/email"
+    end
   end
 
+  private
 
-  def email
-    user = User.find(params[:id])
-    @address = twitter_client.user(user.name).email
-    binding.pry
-    render json: @address
+  def user_params
+    params.permit(:intensity, :email)
   end
 
 end
