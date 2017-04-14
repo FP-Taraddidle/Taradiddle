@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
 
-
   def new
     @user =  User.new
   end
@@ -16,6 +15,15 @@ class UsersController < ApplicationController
       redirect_to "/"
     else
       redirect_to "/email"
+    end
+  end
+
+  def destroy
+    if current_user
+      @user = User.find(params[:id]).destroy
+      redirect_to "/"
+    else
+      render text: "not logged in"
     end
   end
 
