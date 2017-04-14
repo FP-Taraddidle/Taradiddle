@@ -1,8 +1,5 @@
 class SessionsController < ApplicationController
 
-  # Get rid of text and redirect to appropriate routes for Devin
-
-
   def create
   auth_hash = request.env['omniauth.auth']
 

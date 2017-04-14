@@ -1,20 +1,29 @@
 class TwitteringsController < ApplicationController
 
-    def show
-      user = User.find(params[:id])
-      @post = twitter_client.user_timeline(user.name, count: 200).count
-      @post.save!
-      render json: @post
-    end
+  def create
+    user = User.find(params[:id])
+    @twitter = Twittering.new
+    @twitter.user = user
+    @twitter.tweets = tweeting
+    @twitter.likes = liking
+    @twitter.save!
+    render json: @twitter
+  end
 
-    def likes
-      user = User.find(params[:id])
-      @likes = twitter_client.favorites(user.name, count: 20).count
-      render json: @likes
+  def index
+    if current_user
+      @twittering = current_user.user.twitterings
     end
+    render json: @twittering
+  end
 
-    def index
-
+  def show
+    if current_user
+      @twittering = current_user.user.twitterings.last
     end
+    render json: @twittering
+  end
+
+
 
 end
