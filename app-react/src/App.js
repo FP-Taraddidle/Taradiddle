@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Routes from './Routes'
+import store from 'store'
 
 import Navbar from './Navbar'
 import Welcome from './Welcome'
@@ -15,11 +16,10 @@ class App extends Component {
         super(props)
 
         // Custom methods
-        this.getUser = this.getUser.bind(this)
-        this.getTwitterSignup = this.getTwitterSignup.bind(this)
-        this.getTweetCount= this.getTweetCount.bind(this)
-        this.getLikeCount = this.getLikeCount.bind(this)
-        // this.addToCart = this.addToCart.bind(this)
+        // this.getUser = this.getUser.bind(this)
+        this.recentUserActivity = this.recentUserActivity.bind(this)
+        this.allUserActivity= this.allUserActivity.bind(this)
+        // this.save = this.save.bind(this)
         // this.checkout = this.checkout.bind(this)
 
         // Master state
@@ -33,27 +33,28 @@ class App extends Component {
         }
   }
 
-  getUser() {
-    fetch('/api/users/:id')
+    // componentDidMount() {
+    //   this.getUser()
+    // }
+
+    // getUser() {
+    // fetch('/api/users/7')
+    // .then(res => res.json())
+    // .then(res => console.log(res))
+    // }
+  
+  recentUserActivity() {
+    fetch('/api/twitterings/:id')
     .then(res => res.json())
     .then(res => console.log(res))
+    // .then(res => this.setState({userInfo: res}))
   }
 
-  getTwitterSignup() {
-    fetch('/twitter/signup')
+  allUserActivity() {
+    fetch('/api/twitterings')
     .then(res => res.json())
-  }
-
-  getTweetCount() {
-    fetch('/tweets')
-    .then(res => res.json())
-    .then(res => this.setState({userInfo: res}))
- }
-
- getLikeCount() {
-    fetch('/tweets/likes')
-    .then(res => res.json())
-    .then(res => this.setState({userInfo: res}))
+    .then(res => console.log(res))
+    // .then(res => this.setState({userInfo: res}))
  }
 
 //  componentWillMount() {

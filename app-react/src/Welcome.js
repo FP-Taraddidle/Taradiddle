@@ -1,12 +1,46 @@
 import React, { Component } from 'react'
-import { router, browserHistory } from 'react-router'
+// import { router, browserHistory } from 'react-router'
+import store from 'store'
 
 class Welcome extends Component {
 
 constructor(props) {
         super(props)
-        
-  }
+
+        this.getUser = this.getUser.bind(this)
+        this.save = this.save.bind(this)
+
+        // this.state = {
+        //     oauth_token: '',
+        // }
+}
+
+    //     componentWillMount() {
+    //     let saveToken = store.get('saveToken', [])
+    //     if (this.props.params.index) {
+    //         let saveToken = saveToken[this.props.params.index]
+    //         this.setState({
+    //             oauth_token: saveToken.oauth_token
+    //         }) 
+    //     }
+    // }
+    
+    componentDidMount() {
+      this.getUser()
+    }
+
+    getUser() {
+        fetch('/api/users/7')
+        .then(res => res.json())
+        .then(res => console.log(res))
+    }
+
+    save() {
+        let saveToken = store.get('saveToken', [])
+        store.set('saveToken', saveToken)
+    }
+
+
  
   render() {
     return <div className="welcomeBackground">
@@ -35,13 +69,13 @@ constructor(props) {
             </ul>
     </div>
     <div>
-        <a className="button sign-up" onClick={() => location.href='/auth/twitter'}>
+        <a className="button sign-up" onClick={this.getUser} onClick={() => location.href='/auth/twitter'}>
             <span className="icon">
             <i className="fa fa-twitter"></i>
             </span>
             <span>Sign-in with Twitter</span>
         </a>
-        <a className="button sign-up" onClick={() => location.href='/twitter/signup'}>
+        <a className="button sign-up"  onClick={() => location.href='/twitter/signup' }>
             <span className="icon">
             <i className="fa fa-twitter"></i>
             </span>

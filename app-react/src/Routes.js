@@ -6,7 +6,7 @@ import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 // Load page view components
 import App from './App'
 import Welcome from './Welcome'
-import OAuth from './OAuth'
+import Profile from './Profile'
 import Workout from './Workout'
 import FirstQ from './FirstQ'
 import FinalQ from './FinalQ'
@@ -17,9 +17,9 @@ class Routes extends React.Component {
         return <Router history={browserHistory}>
             <Route path="/" component={App}>
                 <IndexRoute component={Welcome} />
-                <Route path="email" component={OAuth} />
+                <Route path="email" component={FirstQ} />
+                <Route path="profile" component={Profile} />
                 <Route path="workout" component={Workout} />
-                <Route path="firstq" component={FirstQ} />
                 <Route path="finalq" component={FinalQ} />
             </Route>
         </Router>
