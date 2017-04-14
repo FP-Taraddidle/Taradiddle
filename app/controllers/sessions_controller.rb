@@ -19,8 +19,7 @@ class SessionsController < ApplicationController
 
 
       user.save!
-      redirect_to "/email"
-      # need route to redirect user to collect email here
+      redirect_to "/email/?oauth_token=#{user.authorizations.first.oauth_token}"
     end
   end
 

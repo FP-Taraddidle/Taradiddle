@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170413172334) do
+ActiveRecord::Schema.define(version: 20170413195036) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,8 +30,10 @@ ActiveRecord::Schema.define(version: 20170413172334) do
   create_table "blocks", force: :cascade do |t|
     t.integer  "routine_id"
     t.string   "difficulty"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "intensity_id"
+    t.index ["intensity_id"], name: "index_blocks_on_intensity_id", using: :btree
     t.index ["routine_id"], name: "index_blocks_on_routine_id", using: :btree
   end
 
@@ -49,6 +51,7 @@ ActiveRecord::Schema.define(version: 20170413172334) do
     t.integer  "level"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "name"
   end
 
   create_table "routines", force: :cascade do |t|
@@ -85,6 +88,7 @@ ActiveRecord::Schema.define(version: 20170413172334) do
     t.index ["intensity_id"], name: "index_users_on_intensity_id", using: :btree
   end
 
+  add_foreign_key "blocks", "intensities"
   add_foreign_key "blocks", "routines"
   add_foreign_key "exercises", "blocks"
   add_foreign_key "routines", "users"
