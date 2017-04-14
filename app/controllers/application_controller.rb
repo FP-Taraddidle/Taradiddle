@@ -12,4 +12,8 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def static
+    render file: 'public/index.html'
+  end
+
 end

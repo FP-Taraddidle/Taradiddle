@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   match "/twitter/signup" => redirect("https://twitter.com/signup?lang=en"), :as => :twitter, via: 'get'
   get '/tweets' => 'twitterings#show'
   get '/tweets/likes' => 'twitterings#likes'
+  get '/:param1(/:param2)(/:param3)' => 'application#static'
 
 
 
