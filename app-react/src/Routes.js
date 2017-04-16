@@ -17,6 +17,7 @@ class Routes extends React.Component {
         return <Router history={browserHistory}>
             <Route path="/" component={App}>
                 <IndexRoute component={Welcome} />
+                {/* <Route path="email" component={FirstQ} /> */}
                 <Route path="email" component={FirstQ} />
                 <Route path="profile" component={Profile} />
                 <Route path="workout" component={Workout} />

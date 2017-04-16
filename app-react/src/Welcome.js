@@ -7,8 +7,9 @@ class Welcome extends Component {
 constructor(props) {
         super(props)
 
-        this.getUser = this.getUser.bind(this)
-        this.save = this.save.bind(this)
+        // this.getUser = this.getUser.bind(this)
+        // this.recentUserActivity = this.recentUserActivity.bind(this)
+        // this.save = this.save.bind(this)
 
         // this.state = {
         //     oauth_token: '',
@@ -25,21 +26,57 @@ constructor(props) {
     //     }
     // }
     
-    componentDidMount() {
-      this.getUser()
-    }
+    // componentDidMount() {
+    //   this.getUser()
+    //   this.recentUserActivity()
+    // }
 
-    getUser() {
-        fetch('/api/users/7')
-        .then(res => res.json())
-        .then(res => console.log(res))
-    }
+    // getUser() {
+    //     fetch('/api/users/:id')
+    //     .then(res => res.json())
+    //     .then(res => console.log(res))
+    // }
 
-    save() {
-        let saveToken = store.get('saveToken', [])
-        store.set('saveToken', saveToken)
-    }
+    // recentUserActivity() {
+    //     fetch('/api/twitterings/:id')
+    //     .then(res => res.json())
+    //     .then(res => console.log(res))
+    //     // .then(res => this.setState({userInfo: res}))
+    // }
 
+    // save() {
+    //     let saveToken = store.get('saveToken', [])
+    //     store.set('saveToken', saveToken)
+    // }
+
+    
+    getToken() {
+    var token = sessionStorage.getItem('token');
+
+    fetch('https://chirpyapp.herokuapp.com/user_list?api_token=' + token) 
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(response) {
+        renderUsersList(response);
+    })
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            api_token: token,
+        })
+
+    
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(response) {
+        renderUsersList(response);
+    })
+    clearStorage();
+}
 
  
   render() {
@@ -75,7 +112,7 @@ constructor(props) {
             </span>
             <span>Sign-in with Twitter</span>
         </a>
-        <a className="button sign-up"  onClick={() => location.href='/twitter/signup' }>
+        <a className="button sign-up"  onClick={() => location.href='/twitter/signup'}>
             <span className="icon">
             <i className="fa fa-twitter"></i>
             </span>

@@ -32,16 +32,6 @@ class App extends Component {
             // message: ''
         }
   }
-
-    // componentDidMount() {
-    //   this.getUser()
-    // }
-
-    // getUser() {
-    // fetch('/api/users/7')
-    // .then(res => res.json())
-    // .then(res => console.log(res))
-    // }
   
   recentUserActivity() {
     fetch('/api/twitterings/:id')

@@ -9,6 +9,7 @@ class FirstQ extends Component {
         this.save = this.save.bind(this)
 
         this.state = {
+            oauth_token: '',
             email: '',
             howActive: '',
             timeOfDay: '',
@@ -21,11 +22,13 @@ class FirstQ extends Component {
       if (this.props.params.index) {
         let savedInfo = savedInfo[this.props.params.index]
         this.setState({
+            oauth_token: savedInfo.oauth_token,
             email: savedInfo.email,
             howActive: savedInfo.howActive,
             timeOfDay: savedInfo.timeOfDay,
             specificTime: savedInfo.specificTime
         }) 
+        this.clear()
       }
     }
 
@@ -40,6 +43,9 @@ class FirstQ extends Component {
         store.set('savedInfo', savedInfo)
         browserHistory.push('/profile')
     }
+    clear() {
+        store.clearAll()
+    }
     // componentWillMount() {
     //     console.log(this)
     //     console.log(location)
@@ -53,7 +59,7 @@ class FirstQ extends Component {
 
     //     }
     //     if (option.innerHTML === 'Evening') {
-            
+
     //     }
     // }
 
@@ -76,9 +82,9 @@ class FirstQ extends Component {
                     <span className="select" value={this.state.howActive} onChange={(e) => this.setState({howActive:e.target.value})}>
                     <select>
                         <option>Select option</option>
-                        <option>Extremely Active</option>
-                        <option>Kind Of Active</option>
-                        <option>Not Active At All</option>
+                        <option value="level: 3">Extremely Active</option>
+                        <option value="level: 4">Kind Of Active</option>
+                        <option value="level: 5">Not Active At All</option>
                     </select>
                     </span>
                 </p><br/>
