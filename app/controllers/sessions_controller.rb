@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
 
 
       user.save!
-      redirect_to "/email/?oauth_token=#{user.authorizations.first.oauth_token}"
+      render json: user.authorizations.first
     end
   end
 
