@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get   '/login', :to => 'sessions#new', :as => :login
   match '/auth/:provider/callback', :to => 'sessions#create', via: 'get'
   match '/auth/failure', :to => 'sessions#failure', via: 'get'
+  post '/tweeting/:id' => 'twitterings#tweeting'
 
   get '/:something1(/:something2)(/:something3)', :to => 'application#static'
 
