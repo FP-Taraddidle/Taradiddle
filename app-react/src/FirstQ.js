@@ -1,36 +1,98 @@
 import React, { Component } from 'react'
-// import { browserHistory } from 'react-router'
+import { browserHistory } from 'react-router'
+import store from 'store'
 
 class FirstQ extends Component {
+
+     constructor(props) {
+        super(props)
+        this.save = this.save.bind(this)
+
+        this.state = {
+            oauth_token: '',
+            email: '',
+            confirmEmail: '',
+            howActive: '',
+            timeOfDay: '',
+            specificTime: ''
+        }
+    }
+
+    componentWillMount() {
+      let savedInfo = store.get('savedInfo', [])
+      if (this.props.params.index) {
+        let savedInfo = savedInfo[this.props.params.index]
+        this.setState({
+            oauth_token: savedInfo.oauth_token,
+            email: savedInfo.email,
+            howActive: savedInfo.howActive,
+            timeOfDay: savedInfo.timeOfDay,
+            specificTime: savedInfo.specificTime
+        }) 
+        this.clear()
+      }
+    }
+
+    save() {
+      let savedInfo = store.get('savedInfo', [])
+        if ( ! this.props.params.index) {
+            savedInfo.push(this.state)
+        }
+        else {
+            savedInfo[this.props.params.index] = this.state
+        }
+        store.set('savedInfo', savedInfo)
+        browserHistory.push('/profile')
+    }
+    clear() {
+        store.clearAll()
+    }
+    // componentWillMount() {
+    //     console.log(this)
+    //     console.log(location)
+    //     // do stuff with returned oauth
+    //     // maybe stash oauth token?
+    //     // then location.href = '/Workout'
+    // }
 
     // getTime() {
     //     if (option.innerHTML === 'Morning') {
 
     //     }
     //     if (option.innerHTML === 'Evening') {
-            
+
     //     }
     // }
 
   render() {
-    return <div className="field is-horizontal">
-        <div className="field">
+    return <div className="field is-horizontal is-center is-question">
+        <div className="field is-firstq">
+
+            <label className="label">Email</label>
+                <p className="control has-icon has-icon-right">
+                    <input className="input" type="text" placeholder="Email input" value={this.state.email} onChange={(e) => this.setState({email:e.target.value})} />
+                </p><br/>
+     
+            <label className="label">Confirm Email</label>
+                <p className="control has-icon has-icon-right">
+                    <input className="input" type="text" placeholder="Email input" value={this.state.confirmEmail} onChange={(e) => this.setState({confirmEmail:e.target.value})}/>
+                </p><br/>
 
             <label className="label">How Active Are You?</label>
                 <p className="control">
-                    <span className="select">
+                    <span className="select" value={this.state.howActive} onChange={(e) => this.setState({howActive:e.target.value})}>
                     <select>
                         <option>Select option</option>
-                        <option>Extremely Active</option>
-                        <option>Kind Of Active</option>
-                        <option>Not Active At All</option>
+                        <option value="level: 3">Extremely Active</option>
+                        <option value="level: 4">Kind Of Active</option>
+                        <option value="level: 5">Not Active At All</option>
                     </select>
                     </span>
                 </p><br/>
 
             <label className="label">Morning or Evening Exercise?</label>
             <p className="control timeOfDay">
-                <span className="select">
+                <span className="select" value={this.state.timeOfDay} onChange={(e) => this.setState({timeOfDay:e.target.value})}>
                 <select>
                     <option>Select option</option>
                     <option>Morning</option>
@@ -41,9 +103,9 @@ class FirstQ extends Component {
 
             <label className="label">What time?</label>
             <p className="control morningTime">
-                <span className="select">
+                <span className="select" value={this.state.specificTime} onChange={(e) => this.setState({specificTime:e.target.value})}>
                     <select>
-                        <option>Select option</option> 
+                        <option>Select Morning option</option> 
                         <option>4:30am</option>
                         <option>5:00am</option>
                         <option>5:30am</option>
@@ -62,9 +124,9 @@ class FirstQ extends Component {
                 </span>
             </p>
             <p className="control eveningTime">
-                <span className="select">
+                <span className="select" value={this.state.specificTime} onChange={(e) => this.setState({specificTime:e.target.value})}>
                     <select>
-                        <option>Select option</option>  
+                        <option>Select Evening option</option>  
                         <option>4:30pm</option>
                         <option>5:00pm</option>
                         <option>5:30pm</option>
@@ -81,7 +143,8 @@ class FirstQ extends Component {
                         <option>11:30pm</option>   
                     </select>
                 </span> 
-            </p>
+            </p><br/>
+
 
             {/* <label className="label">Time</label>
             <p className="control eveningTime">
@@ -107,7 +170,11 @@ class FirstQ extends Component {
                 </select>
                 </span> 
             </p> */}
-
+            <div className="field is-grouped">
+                <p className="control" onClick={this.save}>
+                    <button className="button is-primary">Submit</button>
+                </p>
+            </div>
         </div>
     </div>        
      
