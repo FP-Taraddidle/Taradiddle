@@ -6,12 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# Intensity.create(name: "Very Easy", level: 6)
-# Intensity.create(name: "Easy", level: 5)
-# Intensity.create(name: "Medium", level: 4)
-# Intensity.create(name: "Hard", level: 3)
-# Intensity.create(name: "Very Hard", level: 2)
-
 #
 # require 'csv'
 #
@@ -26,12 +20,19 @@
 #   t.save!
 # end
 
+  # Intensity.create(name: "Very Easy", level: 6)
+  # Intensity.create(name: "Easy", level: 5)
+  # Intensity.create(name: "Medium", level: 4)
+  # Intensity.create(name: "Hard", level: 3)
+  # Intensity.create(name: "Very Hard", level: 2)
+
+  def random_exercise_blocks
+    ex = Exercise.all.to_a
+    combos = ex.combination(4).to_a
+    combos.collect { |c| c.each_slice(2).to_a}
+  end
+
 # for each intensity, make 20 blocks,
   # for each block, (60) divided by (the intensity level)
   # grab that many ^^ of a random exercise id and shove it into the block
   # repeat that a second time but do not select the same exercise id as the first
-
-  intensity = Intensity.all
-  levels  = intensity.collect{ |i|
-    60/i.level
-  }
