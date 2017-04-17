@@ -26,31 +26,11 @@
   # Intensity.create(name: "Hard", level: 3)
   # Intensity.create(name: "Very Hard", level: 2)
 
-
-  def reps
-    intensity = Intensity.all.to_a
-    intensity.collect{ |i|
-      60/i.level
-    }
-  end
-
   def random_exercise_blocks
     ex = Exercise.all.to_a
     combos = ex.combination(4).to_a
     combos.collect { |c| c.each_slice(2).to_a}
   end
-
-  def random_routine_assignment
-    random_exercise_blocks
-    ro_arr = []
-    ro_arr << random_exercise_blocks.sample
-    unique = (random_exercise_blocks - ro_arr).sample
-    ro_arr << unique
-  end
-
-
-
-
 
 # for each intensity, make 20 blocks,
   # for each block, (60) divided by (the intensity level)
