@@ -19,6 +19,9 @@
 + This will grab a single user as specified by their ID and will return all their information.
 
 ```
+example url:
+localhost:3000/api/users/30?token=1LDTFzvjYkDQZwUYJV1v6KND
+
 {
   "id": 3,
   "username": null,
@@ -35,6 +38,9 @@
 + After you pass in the id of the desired user, this will display the last piece of activity for the specific user.  An oauth_token must be passed in as a parameter, as well as an id, since this is for the current user.
 
 ```
+example url:
+localhost:3000/api/twitterings/30?token=1LDTFzvjYkDQZwUYJV1v6KND
+
 {
   "id": 4,
   "tweets": 4,
@@ -56,6 +62,9 @@
 + An oauth_token must be passed in as a parameter since this is for the current user.  Information will output as an array.
 
 ```
+example url:
+localhost:3000/api/twitterings/?token=1LDTFzvjYkDQZwUYJV1v6KND
+
 [
   {
     "id": 1,
