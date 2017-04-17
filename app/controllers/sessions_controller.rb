@@ -19,6 +19,7 @@ class SessionsController < ApplicationController
       render json: user.token
       if Rails.env == "development"
         redirect_to "http://127.0.0.1:3001/email?token=#{user.token}"
+
       else
         redirect_to "/email?token=#{user.token}"
       end
