@@ -35,7 +35,7 @@ class FirstQ extends Component {
     }
 
     getToken() {
-        window.location.href.split("token=")[1]
+        window.location.href.split("token=")
         .then.save()
     }
 
