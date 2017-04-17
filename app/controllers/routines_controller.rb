@@ -1,5 +1,9 @@
 class RoutinesController < ApplicationController
 
+  def show
+
+  end
+
   def random_routine_assignment
     random_exercise_blocks
     ro_arr = []
@@ -9,8 +13,8 @@ class RoutinesController < ApplicationController
   end
 
   def reps
+    @user = User.find(params[:id])
     @level = Intensity.find(params[:id]).level
-    user = User.find(params[:id])
     @count = 60/user.intensity
   end
 
