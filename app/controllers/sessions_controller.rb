@@ -7,7 +7,6 @@ class SessionsController < ApplicationController
     if @authorization
       redirect_to "/"
     else
-      # binding.pry
       user = User.new :name => auth_hash["info"]["name"]
       user.authorizations.build :provider => auth_hash["provider"],
                                 :uid => auth_hash["uid"],
@@ -15,14 +14,14 @@ class SessionsController < ApplicationController
                                 :user_oauth_secret => auth_hash["extra"]["access_token"].params[:oauth_token_secret],
                                 :oauth_token => params[:oauth_token],
                                 :oauth_verifier => params[:oauth_verifier]
-
-
-
       user.save!
+      binding.pry
+      render json: user.token
       if Rails.env == "development"
-        redirect_to "http://127.0.0.1:3001/email?oauth_token=#{user.authorizations.first.oauth_token}&oauth_verifier=#{user.authorizations.first.oauth_verifier}"
+        redirect_to "http://127.0.0.1:3001/email?token=#{user.token}"
+
       else
-        redirect_to "/email?oauth_token=#{user.authorizations.first.oauth_token}&oauth_verifier=#{user.authorizations.first.oauth_verifier}"
+        redirect_to "/email?token=#{user.token}"
       end
     end
   end
