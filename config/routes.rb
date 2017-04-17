@@ -7,9 +7,6 @@ Rails.application.routes.draw do
     get '/tweets' => 'twitterings#show'
     get '/tweets/likes' => 'twitterings#likes'
   end
-    get   '/login', :to => 'sessions#new', :as => :login
-    match '/auth/:provider/callback', :to => 'sessions#create', via: 'get'
-    match '/auth/failure', :to => 'sessions#failure', via: 'get'
 
   get   '/login', :to => 'sessions#new', :as => :login
   match '/auth/:provider/callback', :to => 'sessions#create', via: 'get'
