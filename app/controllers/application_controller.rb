@@ -2,7 +2,7 @@ require 'twitter'
 class ApplicationController < ActionController::Base
 
   def current_user
-    @current_user ||= Authorization.find_by(oauth_token: params[:oauth_token]) if params[:oauth_token]
+    @current_user ||= User.find_by(token: params[:token])
     # Since user sessions are not created by us, we have to define current user through the oauth token
     # gathered through the omniauth gem
   end
