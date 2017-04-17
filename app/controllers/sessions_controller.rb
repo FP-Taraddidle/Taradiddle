@@ -19,7 +19,8 @@ class SessionsController < ApplicationController
 
 
       user.save!
-      render json: user.authorizations.first
+      redirect_to "http://localhost:3001/email"
+      # render json: user.authorizations.first
     end
   end
 

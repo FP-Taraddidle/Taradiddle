@@ -115,5 +115,11 @@ button {
 /* USER_PROFILE */
 
 /* FIRSTQ */
+.is-question {
+    padding-bottom: 135px;
+}
+.is-firstq {
+
+}
 
 /* FINALQ */

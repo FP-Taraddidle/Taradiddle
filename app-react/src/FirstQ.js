@@ -11,6 +11,7 @@ class FirstQ extends Component {
         this.state = {
             oauth_token: '',
             email: '',
+            confirmEmail: '',
             howActive: '',
             timeOfDay: '',
             specificTime: ''
@@ -64,8 +65,8 @@ class FirstQ extends Component {
     // }
 
   render() {
-    return <div className="field is-horizontal is-center">
-        <div className="field">
+    return <div className="field is-horizontal is-center is-question">
+        <div className="field is-firstq">
 
             <label className="label">Email</label>
                 <p className="control has-icon has-icon-right">
@@ -74,7 +75,7 @@ class FirstQ extends Component {
      
             <label className="label">Confirm Email</label>
                 <p className="control has-icon has-icon-right">
-                    <input className="input" type="text" placeholder="Email input" value={this.state.email} onChange={(e) => this.setState({email:e.target.value})}/>
+                    <input className="input" type="text" placeholder="Email input" value={this.state.confirmEmail} onChange={(e) => this.setState({confirmEmail:e.target.value})}/>
                 </p><br/>
 
             <label className="label">How Active Are You?</label>

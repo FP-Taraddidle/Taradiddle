@@ -50,33 +50,33 @@ constructor(props) {
     // }
 
     
-    getToken() {
-    var token = sessionStorage.getItem('token');
+//     getToken() {
+//     var token = sessionStorage.getItem('token');
 
-    fetch('https://chirpyapp.herokuapp.com/user_list?api_token=' + token) 
-    .then(function(response) {
-        return response.json();
-    })
-    .then(function(response) {
-        renderUsersList(response);
-    })
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            api_token: token,
-        })
+//     fetch('https://chirpyapp.herokuapp.com/user_list?api_token=' + token) 
+//     .then(function(response) {
+//         return response.json();
+//     })
+//     .then(function(response) {
+//         renderUsersList(response);
+//     })
+//         method: 'GET',
+//         headers: {
+//             'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify({
+//             api_token: token,
+//         })
 
-    
-    .then(function(response) {
-        return response.json();
-    })
-    .then(function(response) {
-        renderUsersList(response);
-    })
-    clearStorage();
-}
+    r
+//     .then(function(response) {
+//         return response.json();
+//     })
+//     .then(function(response) {
+//         renderUsersList(response);
+//     })
+//     clearStorage();
+// }
 
  
   render() {
@@ -112,7 +112,7 @@ constructor(props) {
             </span>
             <span>Sign-in with Twitter</span>
         </a>
-        <a className="button sign-up"  onClick={() => location.href='/twitter/signup'}>
+        <a className="button sign-up"  onClick={() => location.href='/api/twitter/signup'}>
             <span className="icon">
             <i className="fa fa-twitter"></i>
             </span>
