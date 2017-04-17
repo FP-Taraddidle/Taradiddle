@@ -32,6 +32,8 @@
     combos.collect { |c| c.each_slice(2).to_a}
   end
 
+  Block.create()
+
 # for each intensity, make 20 blocks,
   # for each block, (60) divided by (the intensity level)
   # grab that many ^^ of a random exercise id and shove it into the block
