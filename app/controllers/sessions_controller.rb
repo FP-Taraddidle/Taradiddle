@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
 
       user.save!
       if Rails.env == "development"
-        redirect_to "localhost:3001/email?oauth_token=#{user.authorizations.first.oauth_token}&oauth_verifier=#{user.authorizations.first.oauth_verifier}"
+        redirect_to "http://127.0.0.1:3001/email?oauth_token=#{user.authorizations.first.oauth_token}&oauth_verifier=#{user.authorizations.first.oauth_verifier}"
       else
         redirect_to "/email?oauth_token=#{user.authorizations.first.oauth_token}&oauth_verifier=#{user.authorizations.first.oauth_verifier}"
       end

@@ -10,6 +10,7 @@ class FirstQ extends Component {
 
         this.state = {
             oauth_token: '',
+            oauth_verifier: '',
             email: '',
             confirmEmail: '',
             howActive: '',
@@ -31,6 +32,11 @@ class FirstQ extends Component {
         }) 
         this.clear()
       }
+    }
+
+    getToken() {
+        window.location.href.split("token=")[1]
+        .then.save()
     }
 
     save() {
