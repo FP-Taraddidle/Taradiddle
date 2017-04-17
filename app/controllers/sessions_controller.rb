@@ -19,8 +19,7 @@ class SessionsController < ApplicationController
 
 
       user.save!
-      binding.pry
-      render json: user.authorizations.first
+      redirect_to "/email"
     end
   end
 
