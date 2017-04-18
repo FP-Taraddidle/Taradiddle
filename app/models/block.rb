@@ -1,5 +1,5 @@
 class Block < ApplicationRecord
-  belongs_to :routine
-  belongs_to :exercises
-  has_many :exercises
+  belongs_to :routine, optional: true
+  has_many :exercisings
+  has_many :exercises, through: :exercisings
 end
