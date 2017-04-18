@@ -10,6 +10,55 @@
 > GET 'api/twitter/signup'
 + Redirects the user to the Twitter Sign Up page, in case they do not have an account before entering our site.
 
+#### User Intensity Options
+> GET 'api/intensities'
++ Pulls up a json list of all the possible intensity options for the user to select.
+
+```
+
+example url: 
+localhost:3000/api/intensities
+
+[
+  {
+    "id": 22,
+    "level": 6,
+    "created_at": "2017-04-13T20:38:58.688Z",
+    "updated_at": "2017-04-13T20:38:58.688Z",
+    "name": "Very Easy"
+  },
+  {
+    "id": 23,
+    "level": 5,
+    "created_at": "2017-04-13T20:38:58.697Z",
+    "updated_at": "2017-04-13T20:38:58.697Z",
+    "name": "Easy"
+  },
+  {
+    "id": 24,
+    "level": 4,
+    "created_at": "2017-04-13T20:38:58.704Z",
+    "updated_at": "2017-04-13T20:38:58.704Z",
+    "name": "Medium"
+  },
+  {
+    "id": 25,
+    "level": 3,
+    "created_at": "2017-04-13T20:38:58.707Z",
+    "updated_at": "2017-04-13T20:38:58.707Z",
+    "name": "Hard"
+  },
+  {
+    "id": 26,
+    "level": 2,
+    "created_at": "2017-04-13T20:38:58.709Z",
+    "updated_at": "2017-04-13T20:38:58.709Z",
+    "name": "Very Hard"
+  }
+]
+
+```
+
 #### User Update for email/questionnaire
 > PUT '/api/users/:id'
 + Email and Intensity are the only parameters you can pass in for a given user ID
