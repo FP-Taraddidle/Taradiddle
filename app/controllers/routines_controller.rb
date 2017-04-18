@@ -14,7 +14,14 @@ class RoutinesController < ApplicationController
     @block_count = @tweets + @likes
 
     @product = random_blocks.sample(@block_count).each {|x| @new_routine.blocks << x}
-    render json: @new_routine.exercises
+    render json: @new_routine
+  end
+
+  def show
+    if current_user
+      @routine = current_user.routines.last.exercises
+    end
+    render json: @routine
   end
 
 
