@@ -23,13 +23,13 @@ example url:
 localhost:3000/api/users/30?token=1LDTFzvjYkDQZwUYJV1v6KND
 
 {
-  "id": 3,
-  "username": null,
-  "password": null,
+  "id": 30,
   "email": null,
-  "created_at": "2017-04-06T19:57:31.741Z",
-  "updated_at": "2017-04-06T19:57:31.741Z",
-  "name": "tiytest2"
+  "created_at": "2017-04-17T19:47:05.067Z",
+  "updated_at": "2017-04-17T19:47:05.067Z",
+  "name": "tiytest1",
+  "intensity_id": null,
+  "token": "1LDTFzvjYkDQZwUYJV1v6KND"
 }
 ```
 
@@ -46,13 +46,13 @@ localhost:3000/api/twitterings/30?token=1LDTFzvjYkDQZwUYJV1v6KND
   "tweets": 4,
   "likes": 3,
   "user": {
-    "id": 3,
-    "username": null,
-    "password": null,
+    "id": 30,
     "email": null,
-    "created_at": "2017-04-06T19:57:31.741Z",
-    "updated_at": "2017-04-06T19:57:31.741Z",
-    "name": "tiytest2"
+    "created_at": "2017-04-17T19:47:05.067Z",
+    "updated_at": "2017-04-17T19:47:05.067Z",
+    "name": "tiytest1",
+    "intensity_id": null,
+    "token": "1LDTFzvjYkDQZwUYJV1v6KND"
   }
 }
 ```
@@ -71,13 +71,13 @@ localhost:3000/api/twitterings/?token=1LDTFzvjYkDQZwUYJV1v6KND
     "tweets": 26,
     "likes": 18,
     "user": {
-      "id": 3,
-      "username": null,
-      "password": null,
+      "id": 30,
       "email": null,
-      "created_at": "2017-04-06T19:57:31.741Z",
-      "updated_at": "2017-04-06T19:57:31.741Z",
-      "name": "tiytest2"
+      "created_at": "2017-04-17T19:47:05.067Z",
+      "updated_at": "2017-04-17T19:47:05.067Z",
+      "name": "tiytest1",
+      "intensity_id": null,
+      "token": "1LDTFzvjYkDQZwUYJV1v6KND"
     }
   },
   {
@@ -85,13 +85,13 @@ localhost:3000/api/twitterings/?token=1LDTFzvjYkDQZwUYJV1v6KND
     "tweets": 4,
     "likes": 3,
     "user": {
-      "id": 3,
-      "username": null,
-      "password": null,
+      "id": 31,
       "email": null,
-      "created_at": "2017-04-06T19:57:31.741Z",
-      "updated_at": "2017-04-06T19:57:31.741Z",
-      "name": "tiytest2"
+      "created_at": "2017-04-17T19:47:05.067Z",
+      "updated_at": "2017-04-17T19:47:05.067Z",
+      "name": "tiytest2",
+      "intensity_id": null,
+      "token": "1LDTFzvjYkDQZwUYJV1v6KND"
     }
   }
 ]
