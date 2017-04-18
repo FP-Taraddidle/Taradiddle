@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     get 'block' => 'blocks#show'
     post 'routine' => 'routines#create'
     get 'routine' => 'routines#show'
+    get 'intensities' => 'intensities#show'
   end
 
   get   '/login', :to => 'sessions#new', :as => :login
