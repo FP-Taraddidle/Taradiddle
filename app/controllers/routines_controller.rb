@@ -4,18 +4,22 @@ class RoutinesController < ApplicationController
 
   end
 
-  def random_routine_assignment
-    random_exercise_blocks
-    ro_arr = []
-    ro_arr << random_exercise_blocks.sample
-    unique = (random_exercise_blocks - ro_arr).sample
-    ro_arr << unique
+  def create
+    @new_routine = Routine.new
+    @new_routine.user = current_user
+    @new_routine.save!
+
+    @tweets = @new_routine.user.twitterings.last.tweets
+    @likes = @new_routine.user.twitterings.last.likes
+    @block_count = @tweets + @likes
+
+    @product = random_blocks.sample(@block_count).each {|x| @new_routine.blocks << x}
+    render json: @new_routine.exercises
   end
 
-  def reps
-    @user = User.find(params[:id])
-    @level = Intensity.find(params[:id]).level
-    @count = 60/user.intensity
+
+  def random_blocks
+    Block.all.to_a
   end
 
 end

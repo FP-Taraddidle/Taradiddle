@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     get '/tweets' => 'twitterings#show'
     get '/tweets/likes' => 'twitterings#likes'
     get 'block' => 'blocks#show'
+    post 'routine' => 'routines#create'
   end
 
   get   '/login', :to => 'sessions#new', :as => :login
