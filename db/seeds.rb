@@ -6,25 +6,25 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-#
-# require 'csv'
-#
-# csv_text = File.read(Rails.root.join('lib', 'seeds', 'exercises.csv'))
-#
-# csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
-# csv.each do |row|
-#   t = Exercise.new
-#   t.name = row['name']
-#   t.description  = row['description']
-#   t.picture = row['picture']
-#   t.save!
-# end
 
-  # Intensity.create(name: "Very Easy", level: 6)
-  # Intensity.create(name: "Easy", level: 5)
-  # Intensity.create(name: "Medium", level: 4)
-  # Intensity.create(name: "Hard", level: 3)
-  # Intensity.create(name: "Very Hard", level: 2)
+require 'csv'
+
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'exercises.csv'))
+
+csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
+csv.each do |row|
+  t = Exercise.new
+  t.name = row['name']
+  t.description  = row['description']
+  t.picture = row['picture']
+  t.save!
+end
+
+  Intensity.create(name: "Very Easy", level: 6)
+  Intensity.create(name: "Easy", level: 5)
+  Intensity.create(name: "Medium", level: 4)
+  Intensity.create(name: "Hard", level: 3)
+  Intensity.create(name: "Very Hard", level: 2)
 
   def random_exercise_blocks
     ex = Exercise.all.to_a
