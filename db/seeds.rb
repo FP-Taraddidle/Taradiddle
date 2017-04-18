@@ -28,11 +28,21 @@
 
   def random_exercise_blocks
     ex = Exercise.all.to_a
-    combos = ex.combination(4).to_a
-    combos.collect { |c| c.each_slice(2).to_a}
+    ex.sample(4)
   end
 
-  Block.create()
+  126.times do
+    block = Block.new
+    block.exercises = random_exercise_blocks
+    block.save!
+    end
+
+
+
+
+
+
+
 
 # for each intensity, make 20 blocks,
   # for each block, (60) divided by (the intensity level)
