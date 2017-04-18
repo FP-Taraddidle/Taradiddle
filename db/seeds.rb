@@ -28,7 +28,7 @@
 
   def random_exercise_blocks
     ex = Exercise.all.to_a
-    ex.sample(4)
+    ex.sample(2)
   end
 
   126.times do

@@ -46,7 +46,7 @@ gem 'pry-rails'
 gem 'bootstrap-sass'
 gem 'figaro'
 gem 'active_model_serializers'
-gem 'omniauth-twitter', :github => 'arunagw/omniauth-twitter'
+gem 'omniauth-twitter'
 gem 'twitter'
 
 
