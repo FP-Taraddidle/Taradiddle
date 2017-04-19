@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170417194442) do
+ActiveRecord::Schema.define(version: 20170418150031) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,24 +27,38 @@ ActiveRecord::Schema.define(version: 20170417194442) do
     t.string   "user_oauth_secret"
   end
 
-  create_table "blocks", force: :cascade do |t|
+  create_table "blockings", force: :cascade do |t|
     t.integer  "routine_id"
+    t.integer  "block_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["block_id"], name: "index_blockings_on_block_id", using: :btree
+    t.index ["routine_id"], name: "index_blockings_on_routine_id", using: :btree
+  end
+
+  create_table "blocks", force: :cascade do |t|
     t.string   "difficulty"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "intensity_id"
     t.index ["intensity_id"], name: "index_blocks_on_intensity_id", using: :btree
-    t.index ["routine_id"], name: "index_blocks_on_routine_id", using: :btree
   end
 
   create_table "exercises", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
     t.string   "picture"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "exercisings", force: :cascade do |t|
+    t.integer  "exercise_id"
     t.integer  "block_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.index ["block_id"], name: "index_exercises_on_block_id", using: :btree
+    t.index ["block_id"], name: "index_exercisings_on_block_id", using: :btree
+    t.index ["exercise_id"], name: "index_exercisings_on_exercise_id", using: :btree
   end
 
   create_table "intensities", force: :cascade do |t|
@@ -54,10 +68,21 @@ ActiveRecord::Schema.define(version: 20170417194442) do
     t.string   "name"
   end
 
+  create_table "levelings", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "intensity_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["intensity_id"], name: "index_levelings_on_intensity_id", using: :btree
+    t.index ["user_id"], name: "index_levelings_on_user_id", using: :btree
+  end
+
   create_table "routines", force: :cascade do |t|
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "blocking_id"
+    t.index ["blocking_id"], name: "index_routines_on_blocking_id", using: :btree
     t.index ["user_id"], name: "index_routines_on_user_id", using: :btree
   end
 
@@ -89,9 +114,14 @@ ActiveRecord::Schema.define(version: 20170417194442) do
     t.index ["intensity_id"], name: "index_users_on_intensity_id", using: :btree
   end
 
+  add_foreign_key "blockings", "blocks"
+  add_foreign_key "blockings", "routines"
   add_foreign_key "blocks", "intensities"
-  add_foreign_key "blocks", "routines"
-  add_foreign_key "exercises", "blocks"
+  add_foreign_key "exercisings", "blocks"
+  add_foreign_key "exercisings", "exercises"
+  add_foreign_key "levelings", "intensities"
+  add_foreign_key "levelings", "users"
+  add_foreign_key "routines", "blockings"
   add_foreign_key "routines", "users"
   add_foreign_key "twitter_data", "users"
   add_foreign_key "twitterings", "users"

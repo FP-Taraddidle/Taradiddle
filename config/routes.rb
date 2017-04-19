@@ -6,6 +6,11 @@ Rails.application.routes.draw do
     match "/twitter/signup" => redirect("https://twitter.com/signup?lang=en"), :as => :twitter, via: 'get'
     get '/tweets' => 'twitterings#show'
     get '/tweets/likes' => 'twitterings#likes'
+    get '/block' => 'blocks#show'
+    post '/routine' => 'routines#create'
+    get '/routine' => 'routines#show'
+    get '/intensities' => 'intensities#show'
+    get 'reps' => 'users#reps'
   end
 
   get   '/login', :to => 'sessions#new', :as => :login

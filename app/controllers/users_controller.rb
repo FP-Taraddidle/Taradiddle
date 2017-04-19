@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
+    @user = current_user
     if @user.update(user_params)
       redirect_to "/"
     else
@@ -25,6 +25,14 @@ class UsersController < ApplicationController
     else
       render text: "not logged in"
     end
+  end
+
+  def reps
+    if current_user
+      @user = current_user
+      @count = 60/current_user.intensity.level
+    end
+    render json: @count
   end
 
   private
