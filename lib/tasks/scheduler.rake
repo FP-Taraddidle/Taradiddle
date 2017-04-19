@@ -8,6 +8,6 @@ end
 
 task :make_routine => :environment do
   puts "Making routines for the users ..."
-  Routine.make
+  Routine.generate
   puts "done."
 end

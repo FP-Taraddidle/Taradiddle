@@ -7,7 +7,7 @@ class Routine < ApplicationRecord
   has_many :exercises, through: :blocks
 
 
-  def make
+  def self.generate
    @user = User.all
    @routines = @user.collect do |y|
       @new_routine = Routine.new
@@ -20,11 +20,9 @@ class Routine < ApplicationRecord
       UserNotifierMailer.send_email(y, @tweets, @likes).deliver
 
     end
-
-    render json: @routines
   end
 
-  def random_blocks
+  def self.random_blocks
     Block.all.to_a
   end
 end
