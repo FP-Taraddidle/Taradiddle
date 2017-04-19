@@ -9,7 +9,7 @@ class Navbar extends Component {
         Taradiddle
       </p>
       <p className="">
-        Run more than your mouth
+        Exercise more than your mouth
       </p>
     </div>
     <span className="nav-toggle">
