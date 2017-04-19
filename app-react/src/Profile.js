@@ -1,7 +1,25 @@
 import React, { Component } from 'react'
+import store from 'store'
 // import Chart.js from 'cxhart.js'
 
 class Profile extends Component {
+
+  constructor(props) {
+        super(props)
+    
+
+        this.state = {
+           
+        }
+    }
+
+    componentDidMount() {
+      let savedInfo = localStorage.getItem('savedInfo', [])
+      let token = savedInfo.slice(17, 41)
+      fetch('/api/twitterings?token=' + token)
+      .then(res => res.json())
+      .then(res => console.log(res))
+    }
 
   // let LineChart = require("react-chartjs").Line;
 
@@ -34,10 +52,11 @@ class Profile extends Component {
   // };
 
   // let MyComponent = React.createClass({
-  // render: function() {
-  //   return <LineChart data={chartData} options={chartOptions} width="600" height="250"/>
-  // }
-  // });
+  render(){
+    return <div>
+    <h1>Hello</h1>
+    </div>
+  }
 }
 
 

@@ -37,11 +37,11 @@ body {
     /*background-image: url("/img/SlaveKingGod.png");*/
     background-image: url("/img/yell_wallpaper.png");
     /*background-image: url("/img/41738_nature_dark_green_grass.jpg");*/
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  padding-bottom: 30px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    padding-bottom: 30px;
 }
 .welcomeIcon {
     width: 115px;
@@ -70,21 +70,32 @@ body {
 }
 .sign-up{
     background-color: dodgerblue;
-    margin-left: 180px;
+    margin-left: 550px;
     color: white;
 }
 
 
 /* WORKOUT PAGE */
 .square1 {
-    background-color: yellow;
+    background-color: #007820;
+    background-image: url("https://www.transparenttextures.com/patterns/football-no-lines.png");
     height: 390px;
 }
 .square2 {
-    /*background-color: lightblue;*/
+    background-color:white;
+}
+.exercise-name {
+    padding: 60px;
+    text-align: center;
+    font-size: 32px;
+}
+.exercise-description {
+    text-align: center;
+    padding: 0px 20px 0px 20px;
 }
 .square3 {
-    background-color: indianred;
+    background-color: #c94932;
+    background-image: url("https://www.transparenttextures.com/patterns/basketball.png");
     height: 390px;
 }
 .square4 {
@@ -98,10 +109,19 @@ body {
     width: 480px;
     height: 384px;
 }
+.total-timer {
+    padding-left: 90px;
+    color: white;
+}
+.block-timer {
+    padding-left: 90px;
+    color: white;
+}
 button {
 	font-size: 30px;
 	width: 140px;
 	height: 60px;
+    padding-left: 20px;
 	border-radius: 5px;
 }
 #startPause {
@@ -109,17 +129,23 @@ button {
 	border-color: green;
 }
 #controls {
-     padding: 0px 0px 0px 140px;
+     padding: 0px 0px 0px 165px;
 }
 
 /* USER_PROFILE */
 
 /* FIRSTQ */
 .is-question {
-    padding-bottom: 135px;
+    padding-bottom: 35px;
 }
 .is-firstq {
-
+    /*margin: 0px 0px 0px 30px;*/
+    padding: 20px 30px 20px 30px;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+    background-color: whitesmoke;
+}
+.reminders {
+    /*padding-bottom: 90px;*/
 }
 
 /* FINALQ */

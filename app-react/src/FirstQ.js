@@ -7,9 +7,12 @@ class FirstQ extends Component {
      constructor(props) {
         super(props)
         this.save = this.save.bind(this)
+        // this.getToken = this.getToken.bind(this)
+        this.confirmEmail = this.confirmEmail.bind(this)
 
         this.state = {
             oauth_token: '',
+            oauth_verifier: '',
             email: '',
             confirmEmail: '',
             howActive: '',
@@ -29,8 +32,16 @@ class FirstQ extends Component {
             timeOfDay: savedInfo.timeOfDay,
             specificTime: savedInfo.specificTime
         }) 
-        this.clear()
       }
+    }
+
+    componentDidMount() {
+         this.getToken()
+    }
+
+    getToken() {
+       let token = window.location.href.split("token=")[1]
+       this.setState({oauth_token: token})
     }
 
     save() {
@@ -43,10 +54,9 @@ class FirstQ extends Component {
         }
         store.set('savedInfo', savedInfo)
         browserHistory.push('/profile')
+        
     }
-    clear() {
-        store.clearAll()
-    }
+    
     // componentWillMount() {
     //     console.log(this)
     //     console.log(location)
@@ -64,23 +74,33 @@ class FirstQ extends Component {
     //     }
     // }
 
-  render() {
-    return <div className="field is-horizontal is-center is-question">
+
+   confirmEmail() {
+        let email = document.querySelector(".email").value
+        let confemail = document.querySelector(".confemail").value
+        if(email !== confemail) {
+            alert('Email Not Matching!');
+        }
+   }
+
+    render() {
+    return <div className="column is-half is-offset-one-quarter">
+    <div className="field is-horizontal is-center is-question">
         <div className="field is-firstq">
 
             <label className="label">Email</label>
                 <p className="control has-icon has-icon-right">
-                    <input className="input" type="text" placeholder="Email input" value={this.state.email} onChange={(e) => this.setState({email:e.target.value})} />
+                    <input className="input email" type="text" placeholder="Email input" value={this.state.email} onChange={(e) => this.setState({email:e.target.value})} required/>
                 </p><br/>
      
             <label className="label">Confirm Email</label>
                 <p className="control has-icon has-icon-right">
-                    <input className="input" type="text" placeholder="Email input" value={this.state.confirmEmail} onChange={(e) => this.setState({confirmEmail:e.target.value})}/>
+                    <input className="input confemail" type="text" placeholder="Email input" value={this.state.confirmEmail} onChange={(e) => this.setState({confirmEmail:e.target.value})} required/>
                 </p><br/>
 
             <label className="label">How Active Are You?</label>
                 <p className="control">
-                    <span className="select" value={this.state.howActive} onChange={(e) => this.setState({howActive:e.target.value})}>
+                    <span className="select" value={this.state.howActive} onChange={(e) => this.setState({howActive:e.target.value})} required>
                     <select>
                         <option>Select option</option>
                         <option value="level: 3">Extremely Active</option>
@@ -92,7 +112,7 @@ class FirstQ extends Component {
 
             <label className="label">Morning or Evening Exercise?</label>
             <p className="control timeOfDay">
-                <span className="select" value={this.state.timeOfDay} onChange={(e) => this.setState({timeOfDay:e.target.value})}>
+                <span className="select" value={this.state.timeOfDay} onChange={(e) => this.setState({timeOfDay:e.target.value})} required>
                 <select>
                     <option>Select option</option>
                     <option>Morning</option>
@@ -103,7 +123,7 @@ class FirstQ extends Component {
 
             <label className="label">What time?</label>
             <p className="control morningTime">
-                <span className="select" value={this.state.specificTime} onChange={(e) => this.setState({specificTime:e.target.value})}>
+                <span className="select" value={this.state.specificTime} onChange={(e) => this.setState({specificTime:e.target.value})} required>
                     <select>
                         <option>Select Morning option</option> 
                         <option>4:30am</option>
@@ -124,7 +144,7 @@ class FirstQ extends Component {
                 </span>
             </p>
             <p className="control eveningTime">
-                <span className="select" value={this.state.specificTime} onChange={(e) => this.setState({specificTime:e.target.value})}>
+                <span className="select" value={this.state.specificTime} onChange={(e) => this.setState({specificTime:e.target.value})} required>
                     <select>
                         <option>Select Evening option</option>  
                         <option>4:30pm</option>
@@ -176,8 +196,17 @@ class FirstQ extends Component {
                 </p>
             </div>
         </div>
+        <div className="field is-horizontal is-center is-question">
+        <div className="field is-firstq">
+            <ol>
+            <li>Don't forget to warm-up for at least 10 minutes before your exercise.</li>
+            <li>The less you tweet the less you exercise. Simple enough.</li>
+            <li></li>
+            </ol>
+        </div>
+        </div>
     </div>        
-     
+   </div>   
   }
 }
 

@@ -84,7 +84,8 @@ constructor(props) {
     <div className="welcomeContent">
     <div className="content about">
         <h1 className="welcomeTitle">About</h1>
-            <p>Our main goal is to help you cut down on your social media and turn it into something productive. More <img className="welcomeIcon" src="/img/my-icons-collection/png/003-gym.png" alt="gymMan" /> and less <img className="welcomeIcon" src="/img/my-icons-collection/png/001-app.png" alt="phoneApp" /></p>
+            <p>Our main goal is to help you cut down on your social media and turn it into something productive.
+            <span> More <img className="welcomeIcon" src="/img/my-icons-collection/png/003-gym.png" alt="gymMan" /> and less <img className="welcomeIcon" src="/img/my-icons-collection/png/001-app.png" alt="phoneApp" /></span></p>
     </div>        
     <div className="content howDoesItWork">  
         <h2 className="welcomeTitle">How does it work?</h2>
@@ -112,12 +113,12 @@ constructor(props) {
             </span>
             <span>Sign-in with Twitter</span>
         </a>
-        <a className="button sign-up"  onClick={() => location.href='/api/twitter/signup'}>
+        {/* <a className="button sign-up"  onClick={() => location.href='/api/twitter/signup'}>
             <span className="icon">
             <i className="fa fa-twitter"></i>
             </span>
-            <span>Sign-up with Twitter</span>
-        </a>
+            <span>Sign-up with Twitter</span> 
+        </a> */}
     </div>
  
     </div>
