@@ -123,7 +123,7 @@ localhost:3000/api/twitterings/30?token=1LDTFzvjYkDQZwUYJV1v6KND
 
 ```
 example url:
-localhost:3000/api/twitterings/?token=1LDTFzvjYkDQZwUYJV1v6KND
+localhost:3000/api/twitterings?token=1LDTFzvjYkDQZwUYJV1v6KND
 
 [
   {
