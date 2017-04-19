@@ -27,6 +27,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def reps
+    if current_user
+      @user = current_user
+      @count = 60/current_user.intensity.level
+    end
+    render json: @count
+  end
+
   private
 
   def user_params

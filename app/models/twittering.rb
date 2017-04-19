@@ -20,7 +20,13 @@ class Twittering < ApplicationRecord
       @twitter.user = e
       @twitter.tweets = tweeting
       @twitter.likes = liking
-      @twitter.save! ? @twitter : {error: "@twitter failed to save in Twitterings#Create"}
+      if @twitter.save!
+        # Deliver the signup email
+        UserNotifierMailer.send_email(e, @twitter).deliver
+        @twitter
+      else
+        {error: "@twitter failed to save in Twitterings#Create"}
+      end
      }
 
   end

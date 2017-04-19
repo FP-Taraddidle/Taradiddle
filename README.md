@@ -16,7 +16,7 @@
 
 ```
 
-example url: 
+example url:
 localhost:3000/api/intensities
 
 [
@@ -63,6 +63,17 @@ localhost:3000/api/intensities
 > PUT '/api/users/:id'
 + Email and Intensity are the only parameters you can pass in for a given user ID
 
+#### User Reps
+> GET '/api/reps'
++ This will give you the rep count for the current user.  You must pass in the token and the user's id as params.
+
+```
+
+example url: localhost:3000/api/reps?token=1LDTFzvjYkDQZwUYJV1v6KND&id=30
+
+10
+
+```
 #### Users Information
 > GET '/api/users/:id'
 + This will grab a single user as specified by their ID and will return all their information.
