@@ -63,6 +63,12 @@ localhost:3000/api/intensities
 > PUT '/api/users/:id'
 + Email and Intensity are the only parameters you can pass in for a given user ID
 
+```
+
+example url:  localhost:3000/api/users/30?token=1LDTFzvjYkDQZwUYJV1v6KND&email=tiytest1@gmail.com&intensity_id=22
+
+```
+
 #### User Reps
 > GET '/api/reps'
 + This will give you the rep count for the current user.  You must pass in the token and the user's id as params.

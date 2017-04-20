@@ -9,8 +9,6 @@ class TwitteringsController < ApplicationController
       @twitter.tweets = tweeting
       @twitter.likes = liking
       if @twitter.save!
-        # Deliver the signup email
-        UserNotifierMailer.send_email(e, @twitter).deliver
         @twitter
       else
         {error: "@twitter failed to save in Twitterings#Create"}
