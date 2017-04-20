@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
+import { router, browserHistory } from 'react-router'
 import store from 'store'
-// import Chart.js from 'cxhart.js'
+// import Chart.js from 'chart.js'
 
 class Profile extends Component {
 
@@ -16,9 +17,13 @@ class Profile extends Component {
     componentDidMount() {
       let savedInfo = localStorage.getItem('savedInfo', [])
       let token = savedInfo.slice(17, 41)
-      fetch('/api/twitterings?token=' + token)
+      fetch('api/twitterings?token=' + token)
       .then(res => res.json())
       .then(res => console.log(res))
+    }
+
+    submit() {
+      browserHistory.push('/workout')
     }
 
   // let LineChart = require("react-chartjs").Line;
@@ -54,7 +59,14 @@ class Profile extends Component {
   // let MyComponent = React.createClass({
   render(){
     return <div>
-    <h1>Hello</h1>
+            <div className="columns is-mobile is-workout-button">
+              <div className="column is-half is-offset-one-quarter">
+                <button className="workout-button" onClick={this.submit}><b id="start">CLICK TO START WORKOUT</b></button>
+              </div>
+            </div>
+            
+            <img className="twitter-chart" src="/img/line_chart.jpg" alt="chart" /> 
+            <img className="twitter-chart" src="/img/line_chart.jpg" alt="chart" />
     </div>
   }
 }

@@ -12,7 +12,7 @@ class FirstQ extends Component {
 
         this.state = {
             oauth_token: '',
-            oauth_verifier: '',
+            userId: '',
             email: '',
             confirmEmail: '',
             howActive: '',
@@ -27,6 +27,7 @@ class FirstQ extends Component {
         let savedInfo = savedInfo[this.props.params.index]
         this.setState({
             oauth_token: savedInfo.oauth_token,
+            userId: savedInfo.userId,
             email: savedInfo.email,
             howActive: savedInfo.howActive,
             timeOfDay: savedInfo.timeOfDay,
@@ -39,9 +40,11 @@ class FirstQ extends Component {
          this.getToken()
     }
 
-    getToken() {
-       let token = window.location.href.split("token=")[1]
-       this.setState({oauth_token: token})
+    getTokenAndId() {
+        let id = window.location.href.split("id=")[1]
+        let token = window.location.href.split("token=")[1]
+        this.setState({oauth_token: token, userId: id})
+        this.post
     }
 
     save() {
@@ -54,9 +57,26 @@ class FirstQ extends Component {
         }
         store.set('savedInfo', savedInfo)
         browserHistory.push('/profile')
-        
+
     }
-    
+
+    post(){
+        let email = email
+        let howActive = howActive
+        let savedInfo = localStorage.getItem('savedInfo', [{id}])
+        let id = savedInfo
+        fetch('/api/users/' + id, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+            body: JSON.stringify({
+                email: email,
+                id: howActive
+            }),
+        })
+    }
+
     // componentWillMount() {
     //     console.log(this)
     //     console.log(location)
@@ -78,13 +98,14 @@ class FirstQ extends Component {
    confirmEmail() {
         let email = document.querySelector(".email").value
         let confemail = document.querySelector(".confemail").value
-        if(email !== confemail) {
+        if(email != confemail) {
             alert('Email Not Matching!');
         }
    }
 
     render() {
-    return <div className="column is-half is-offset-one-quarter">
+    return <div>
+    <div className="column is-half is-offset-one-quarter">
     <div className="field is-horizontal is-center is-question">
         <div className="field is-firstq">
 
@@ -103,9 +124,9 @@ class FirstQ extends Component {
                     <span className="select" value={this.state.howActive} onChange={(e) => this.setState({howActive:e.target.value})} required>
                     <select>
                         <option>Select option</option>
-                        <option value="level: 3">Extremely Active</option>
-                        <option value="level: 4">Kind Of Active</option>
-                        <option value="level: 5">Not Active At All</option>
+                        <option value="2">Extremely Active</option>
+                        <option value="3">Kind Of Active</option>
+                        <option value="4">Not Active At All</option>
                     </select>
                     </span>
                 </p><br/>
@@ -125,7 +146,7 @@ class FirstQ extends Component {
             <p className="control morningTime">
                 <span className="select" value={this.state.specificTime} onChange={(e) => this.setState({specificTime:e.target.value})} required>
                     <select>
-                        <option>Select Morning option</option> 
+                        <option>Morning Options</option> 
                         <option>4:30am</option>
                         <option>5:00am</option>
                         <option>5:30am</option>
@@ -146,7 +167,7 @@ class FirstQ extends Component {
             <p className="control eveningTime">
                 <span className="select" value={this.state.specificTime} onChange={(e) => this.setState({specificTime:e.target.value})} required>
                     <select>
-                        <option>Select Evening option</option>  
+                        <option>Evening Options</option>  
                         <option>4:30pm</option>
                         <option>5:00pm</option>
                         <option>5:30pm</option>
@@ -206,6 +227,7 @@ class FirstQ extends Component {
         </div>
         </div>
     </div>        
+   </div>
    </div>   
   }
 }

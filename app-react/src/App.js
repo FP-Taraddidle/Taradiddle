@@ -55,8 +55,6 @@ class App extends Component {
     return (
       <div className="App">
         {location.href.includes('workout') ? '' : <Navbar />}
-        {location.href.includes('workout') ? '' : <br/>}
-        {location.href.includes('workout') ? '' : <br/>}
         {this.props.children}
       </div>
     )

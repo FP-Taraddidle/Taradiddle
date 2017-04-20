@@ -22,7 +22,7 @@ body {
 .projectName {
     font-size: 30px;
     font-family: 'Rock Salt', cursive;
-    color: #EFE9F4;
+    color: #1A535C;
 }
 .nav-menu a {
     color: white;
@@ -41,36 +41,49 @@ body {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    padding-bottom: 30px;
+    background-position: 400px 30px;
+    padding-bottom: 80px;
+    padding-left: 40px;
 }
 .welcomeIcon {
     width: 115px;
 }
 .welcomeContent {
+    padding-top: 20px;
     margin-left: 40px;
 }
 .about {
+    padding: 5px;
+    font-size: 18px;
     /*margin-top: 20px;*/
     /*color: white;*/
 }
 /*.welcomeContent div{
     margin-top: 40px;
 }*/
+.about-title{
+    position: absolute;
+    margin-top: 40px;
+}
 .welcomeTitle {
     font-family: 'Luckiest Guy', cursive;
     /*color: white;*/
 }
 .howDoesItWork {
+    padding: 5px;
     margin-left: 80px;
+    font-size: 18px;
     /*color: white;*/
 }
 .toGetStarted {
+    padding: 5px;
     margin-left: 180px;
+    font-size: 18px;
     /*color: white;*/
 }
 .sign-up{
     background-color: dodgerblue;
-    margin-left: 550px;
+    margin-left: 200px;
     color: white;
 }
 
@@ -85,9 +98,13 @@ body {
     background-color:white;
 }
 .exercise-name {
-    padding: 60px;
+    margin: 60px;
     text-align: center;
     font-size: 32px;
+    border: solid;
+    border-color: black;
+    background-color: black;
+    color: white;
 }
 .exercise-description {
     text-align: center;
@@ -131,8 +148,23 @@ button {
 #controls {
      padding: 0px 0px 0px 165px;
 }
+#start {
+    padding-right: 10px;
+}
 
 /* USER_PROFILE */
+.is-workout-button {
+    padding-top: 40px;
+}
+.workout-button {
+    height: 100px;
+    width: 680px;
+    background-color: #1A535C;
+    color: white;
+}
+.twitter-chart {
+    padding: 100px 250px 50px 250px;
+}
 
 /* FIRSTQ */
 .is-question {
