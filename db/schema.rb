@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170418150031) do
+ActiveRecord::Schema.define(version: 20170417222352) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,21 +68,10 @@ ActiveRecord::Schema.define(version: 20170418150031) do
     t.string   "name"
   end
 
-  create_table "levelings", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "intensity_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.index ["intensity_id"], name: "index_levelings_on_intensity_id", using: :btree
-    t.index ["user_id"], name: "index_levelings_on_user_id", using: :btree
-  end
-
   create_table "routines", force: :cascade do |t|
     t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "blocking_id"
-    t.index ["blocking_id"], name: "index_routines_on_blocking_id", using: :btree
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_routines_on_user_id", using: :btree
   end
 
@@ -119,9 +108,6 @@ ActiveRecord::Schema.define(version: 20170418150031) do
   add_foreign_key "blocks", "intensities"
   add_foreign_key "exercisings", "blocks"
   add_foreign_key "exercisings", "exercises"
-  add_foreign_key "levelings", "intensities"
-  add_foreign_key "levelings", "users"
-  add_foreign_key "routines", "blockings"
   add_foreign_key "routines", "users"
   add_foreign_key "twitter_data", "users"
   add_foreign_key "twitterings", "users"
