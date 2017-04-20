@@ -44,7 +44,7 @@ class FirstQ extends Component {
         let id = window.location.href.split("id=")[1]
         let token = window.location.href.split("token=")[1]
         this.setState({oauth_token: token, userId: id})
-        this.post
+        this.post()
     }
 
     save() {
