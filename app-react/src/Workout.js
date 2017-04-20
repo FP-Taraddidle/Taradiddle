@@ -77,7 +77,13 @@ class Workout extends Component {
             </div>
 
             <div className="column is-4 square3">
-                <BlockTimer />
+                <div className="container">
+                    <BlockTimer />
+                        <div id="controls">
+                            <button id="startPause" onClick={this.startTimer}><b id="start">Start</b></button>
+                        </div>
+                </div>
+
             </div>
 
             <div className="column is-4 square2">

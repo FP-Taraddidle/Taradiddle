@@ -5,7 +5,7 @@ class BlockTimer extends Component {
 
     constructor() {
     super()
-    this.state = { time: {}, seconds: 300 }
+    this.state = { time: {}, seconds: 120 }
     this.timer = 0
     this.running = 0
     this.startTimer = this.startTimer.bind(this)
@@ -59,12 +59,8 @@ class BlockTimer extends Component {
         }
     }
 	render() {
-		return <div className="container">
-                    <h1 className="block-timer"><p id="output"><b>{this.state.time.m} : {this.state.time.s}</b></p></h1>
-                        <div id="controls">
-                            <button id="startPause" onClick={this.startTimer}><b id="start">Start</b></button>
-                        </div>
-                </div>
+		return <h1 className="block-timer"><p id="output"><b>{this.state.time.m} : {this.state.time.s}</b></p></h1>
+                        
 
 	}
 }
