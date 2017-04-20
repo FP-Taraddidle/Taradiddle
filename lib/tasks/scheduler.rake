@@ -5,3 +5,9 @@ task :pull_twitter => :environment do
   Twittering.pull
   puts "done."
 end
+
+task :make_routine => :environment do
+  puts "Making routines for the users ..."
+  Routine.generate
+  puts "done."
+end
