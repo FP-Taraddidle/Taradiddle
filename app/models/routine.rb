@@ -16,7 +16,7 @@ class Routine < ApplicationRecord
       @tweets = @new_routine.user.twitterings.last.tweets
       @likes = @new_routine.user.twitterings.last.likes
       @block_count = @tweets + @likes
-      @product = random_blocks.sample(@block_count).each {|x| @new_routine.blocks << x}
+      @product = self.random_blocks.sample(@block_count).each {|x| @new_routine.blocks << x}
       UserNotifierMailer.send_email(y, @tweets, @likes).deliver
     end
   end
