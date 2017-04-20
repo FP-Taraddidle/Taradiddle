@@ -37,7 +37,7 @@ class FirstQ extends Component {
     }
 
     componentDidMount() {
-         this.getToken()
+         this.getTokenAndId()
     }
 
     getTokenAndId() {
