@@ -168,7 +168,8 @@ button {
 
 /* FIRSTQ */
 .is-question {
-    padding-bottom: 35px;
+    /*padding-top: 20px;*/
+    padding-bottom: 85px;
 }
 .is-firstq {
     /*margin: 0px 0px 0px 30px;*/
