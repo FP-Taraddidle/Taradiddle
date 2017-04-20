@@ -42,7 +42,7 @@ class FirstQ extends Component {
 
     getTokenAndId() {
         let id = window.location.href.split("id=")[1]
-        let token = window.location.href.split("token=")[1]
+        let token = window.location.href.split("token=")[1].slice(0, 23)
         this.setState({oauth_token: token, userId: id})
         this.post()
     }
@@ -60,9 +60,9 @@ class FirstQ extends Component {
 
     }
 
-    post(){
-        let email = email
-        let howActive = howActive
+    post() {
+        let email = this.State.email
+        let howActive = this.State.howActive
         let savedInfo = localStorage.getItem('savedInfo', [{id}])
         let id = savedInfo
         fetch('/api/users/' + id, {
