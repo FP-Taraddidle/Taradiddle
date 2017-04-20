@@ -16,15 +16,15 @@ csv.each do |row|
   t = Exercise.new
   t.name = row['name']
   t.description  = row['description']
-  t.picture = row['picture']
+  t.picture = File.open(Rails.root + "public/img/Exercises/#{row['name'].downcase.downcase.split(" ").join("-")}.gif")
   t.save!
 end
-
-  Intensity.create(name: "Very Easy", level: 6)
-  Intensity.create(name: "Easy", level: 5)
-  Intensity.create(name: "Medium", level: 4)
-  Intensity.create(name: "Hard", level: 3)
-  Intensity.create(name: "Very Hard", level: 2)
+  # 
+  # Intensity.create(name: "Very Easy", level: 6)
+  # Intensity.create(name: "Easy", level: 5)
+  # Intensity.create(name: "Medium", level: 4)
+  # Intensity.create(name: "Hard", level: 3)
+  # Intensity.create(name: "Very Hard", level: 2)
 
   def random_exercise_blocks
     ex = Exercise.all.to_a
