@@ -11,9 +11,8 @@ class UsersController < ApplicationController
 
   def update
     @user = current_user
-    binding.pry
     if @user.update(user_params)
-      redirect_to "/profile"
+      redirect_to "/"
     else
       redirect_to "/email"
     end
