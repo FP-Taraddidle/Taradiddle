@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     if @user.update(user_params)
-      redirect_to "/"
+      redirect_to "/profile"
     else
       redirect_to "/email"
     end
@@ -38,7 +38,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.permit(:intensity_id, :email)
+    params.permit(:intensity_id, :email, :id, :token)
   end
 
 end
