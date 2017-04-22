@@ -27,6 +27,10 @@ body {
 .nav-menu a {
     color: white;
 }
+.logout-button {
+    border: solid;
+    color: black;
+}
 
 
 /* WEBSITE PAGE */
@@ -158,6 +162,7 @@ button {
 .overlay-background {
     background-color: rgba (0,0,0,0.5);
     position: absolute;
+    padding-top: 10vw;
     top: 0px;
     left: 0px;
     width: 100vw;
@@ -168,12 +173,19 @@ button {
     transition: opacity 0.3s ease;
 }
 .overlay-backround.hidden {
-    opacity: 0;
+    opacity: 0.25;
+}
+.modal-text {
+    text-align: center;
+    padding-top: 30px;
+    font-size: 32px;
+    font-family: 'Luckiest Guy', cursive;
 }
 .overlay {
     box-shadow: 5px 5px 10px rgba(0,0,0,0.25);
     background-color: white;
     width: 50vw;
+    height: 10vw;
     min-width: 300px;
     /*height: 50vh;*/
     margin: 0 auto;

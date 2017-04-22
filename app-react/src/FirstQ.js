@@ -44,7 +44,7 @@ class FirstQ extends Component {
     getTokenAndId() {
         if (window.location.href.includes('token=')) {
             let id = window.location.href.split("id=")[1]
-            let token = window.location.href.split("token=")[1].slice(0, 23)
+            let token = window.location.href.split("token=")[1].slice(0, 24)
             this.setState({ oauth_token: token, userId: id })
         }
     }
@@ -61,7 +61,7 @@ class FirstQ extends Component {
             fetch('/api/users/' + this.state.userId + '?token=' + this.state.oauth_token + '&email=' + this.state.email + '&intensity_id=' + this.state.howActive, {
                 method: 'PUT'
             })
-
+                .then(response => browserHistory.push('/profile'))
         }
     }
 

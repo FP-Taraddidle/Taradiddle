@@ -7,7 +7,7 @@ class Workout extends Component {
 
     constructor() {
         super()
-        this.state = { totalTime: {}, time: {}, totalSeconds: 20 * 2, seconds: 20 }
+        this.state = { totalTime: {}, time: {}, totalSeconds: 120 * 6, seconds: 120 }
         this.timer = 0
         this.running = 0
         this.startTimer = this.startTimer.bind(this)
@@ -62,15 +62,14 @@ class Workout extends Component {
         let totalSeconds = this.state.totalSeconds - 1
         let seconds = this.state.seconds - 1
 
-        // if (seconds <= 10 ){
-		// 	seconds = "0" + seconds
-		// }
+        if (seconds <= 10){
+			seconds = "0" + seconds
+		}
 
         if (seconds <= 0) {
             seconds = 120
-            // this.showModal()
-            // this.hideModal()
         }
+        
 
         this.setState({
             totalTime: this.secondsToTime(totalSeconds),
@@ -125,7 +124,7 @@ class Workout extends Component {
 
             <div id="modal" className="overlay-background is-hidden">
                 <div className="overlay">
-                    <h1> Get ready to switch.</h1>
+                    <h1 className="modal-text"> Get ready to switch.</h1>
                 </div>
             </div>
 
