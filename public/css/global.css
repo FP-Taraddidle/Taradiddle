@@ -97,6 +97,9 @@ body {
 .square2 {
     background-color:white;
 }
+.current-next {
+    text-align: center;
+}
 .exercise-name {
     margin: 60px;
     text-align: center;
@@ -151,6 +154,44 @@ button {
 #start {
     padding-right: 10px;
 }
+/* Modal */
+.overlay-background {
+    background-color: rgba (0,0,0,0.5);
+    position: absolute;
+    padding-top: 10vw;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vw;
+    overflow: hidden;
+    overflow-y: auto;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+.overlay-backround.hidden {
+    opacity: 0.25;
+}
+.modal-text {
+    text-align: center;
+    padding-top: 30px;
+    font-size: 32px;
+    font-family: 'Luckiest Guy', cursive;
+}
+.overlay {
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.25);
+    background-color: white;
+    width: 50vw;
+    height: 10vw;
+    min-width: 300px;
+    /*height: 50vh;*/
+    margin: 0 auto;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    border-radius: 10px;
+    padding: 20px 30px;
+}
+
+
 
 /* USER_PROFILE */
 .is-workout-button {
@@ -161,6 +202,9 @@ button {
     width: 680px;
     background-color: #1A535C;
     color: white;
+}
+.workout-button:hover {
+    background-color: #80ced7 ;
 }
 .twitter-chart {
     padding: 100px 250px 50px 250px;
@@ -181,4 +225,3 @@ button {
     /*padding-bottom: 90px;*/
 }
 
-/* FINALQ */

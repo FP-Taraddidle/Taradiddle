@@ -19,7 +19,7 @@ class Navbar extends Component {
     </span>
     <div className="nav-right nav-menu">
       {/* <a className="nav-item is-tab">Sign-in</a> */}
-      <a className="nav-item is-tab">Log out</a>
+      <a className="nav-item is-tab logout-button">Log out</a>
     </div>
   </div>
 </nav>
