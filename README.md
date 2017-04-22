@@ -1,6 +1,18 @@
-# README
+# Taradiddle
 
 ### Routes
+
+#### Home Page
+> https://taradiddle.herokuapp.com/
+
+#### Profile Page
+> https://taradiddle.herokuapp.com/profile
+
+#### Basic Information Questionnaire Page
+> https://taradiddle.herokuapp.com/email
+
+#### User's Personal Workout Page
+> https://taradiddle.herokuapp.com/workout
 
 #### User Sign In/Log In
 > GET '/auth/twitter'
