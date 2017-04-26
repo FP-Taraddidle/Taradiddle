@@ -94,15 +94,15 @@ constructor(props) {
                     <li>We count Tweets and likes from the past 24 hours to create your exercise.</li>
                     <li>You pick the time of day you would like to do your next exercise.</li>
                     <li>Your exercise will be ready at that time. All you need to do is click start.</li>
-                    <li>You will have a circuit style workout doing 1 minute spurts of random full body exercises.</li>
+                    <li>You will have a circuit-style workout doing 1 minute intervals of random full body exercises.</li>
                 </ul>
     </div>        
     <div className="content toGetStarted">             
         <h2 className="welcomeTitle">To get started</h2>
             <ul>
                 <li>Sign-in with your Twitter account below.</li>
-                <li>Fill out the short questionarre that follows.</li>
-                <li>Don't forget to Warm-up before each exercise</li>
+                <li>Fill out the short questionnaire that follows.</li>
+                <li>Don't forget to warm-up before each exercise</li>
                 <li>Have a great workout.</li>
             </ul>
     </div>

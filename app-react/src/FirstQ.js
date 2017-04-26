@@ -83,12 +83,12 @@ class FirstQ extends Component {
 
                         <label className="label">Email</label>
                         <p className="control has-icon has-icon-right">
-                            <input className="input email" type="text" placeholder="Email input" value={this.state.email} onChange={(e) => this.setState({ email: e.target.value })} required />
+                            <input className="input email" type="text" placeholder="Email" value={this.state.email} onChange={(e) => this.setState({ email: e.target.value })} required />
                         </p><br />
 
                         <label className="label">Confirm Email</label>
                         <p className="control has-icon has-icon-right">
-                            <input className="input confemail" type="text" placeholder="Email input" value={this.state.confirmEmail} onChange={(e) => this.setState({ confirmEmail: e.target.value })} required />
+                            <input className="input confemail" type="text" placeholder="Confirm Email" value={this.state.confirmEmail} onChange={(e) => this.setState({ confirmEmail: e.target.value })} required />
                         </p><br />
 
                         <label className="label">How Active Are You?</label>
@@ -189,12 +189,14 @@ class FirstQ extends Component {
                             </p>
                         </div>
                     </div>
-                    <div className="field is-horizontal is-center is-question">
+                    <div className="field is-horizontal is-center reminders">
                         <div className="field is-firstq">
-                            <ol>
+                                <h3 className="reminders-title">Things to rememeber</h3>
+                            <ol>    
                                 <li>Don't forget to warm-up for at least 10 minutes before your exercise.</li>
+                                <li>You can come back and change your preferred exercise time anytime.</li>
+                                <li>Don't forget to check you profile page to keep track of your activity.</li>
                                 <li>The less you tweet the less you exercise. Simple enough.</li>
-                                <li></li>
                             </ol>
                         </div>
                     </div>
