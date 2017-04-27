@@ -58,15 +58,14 @@ class Profile extends Component {
 
   // let MyComponent = React.createClass({
   render(){
-    return <div>
+    return <div className="profile-page">
             <div className="columns is-mobile is-workout-button">
               <div className="column is-half is-offset-one-quarter">
                 <button className="workout-button" onClick={this.submit}><b id="start">CLICK TO START WORKOUT</b></button>
               </div>
             </div>
-            
-            <img className="twitter-chart" src="/img/line_chart.jpg" alt="chart" /> 
-            <img className="twitter-chart" src="/img/line_chart.jpg" alt="chart" />
+            <h2 className="chart-title">Twitter Usage</h2>
+            <div id="line_top_x"></div> 
     </div>
   }
 }

@@ -7,13 +7,13 @@ class Workout extends Component {
 
     constructor() {
         super()
-        this.state = { totalTime: {}, time: {}, totalSeconds: 120 * 6, seconds: 120 }
+        this.state = { totalTime: {}, time: {}, totalSeconds: 60 * 12, seconds: 60 }
         this.timer = 0
         this.running = 0
         this.startTimer = this.startTimer.bind(this)
         this.countDown = this.countDown.bind(this)
-        this.showModal = this.showModal.bind(this)
-        this.hideModal = this.hideModal.bind(this)
+        // this.showModal = this.showModal.bind(this)
+        // this.hideModal = this.hideModal.bind(this)
     }
 
     secondsToTime(secs) {
@@ -62,12 +62,12 @@ class Workout extends Component {
         let totalSeconds = this.state.totalSeconds - 1
         let seconds = this.state.seconds - 1
 
-        if (seconds <= 10){
-			seconds = "0" + seconds
+        if (this.m <= 1){
+			this.m = "0" + this.m
 		}
 
         if (seconds <= 0) {
-            seconds = 120
+            seconds = 60
         }
         
 
@@ -84,15 +84,15 @@ class Workout extends Component {
         }
 
     }
-    showModal() {
-        document.querySelector('#modal').removeClass('is-hidden')
-    }
-    hideModal() {
-        document.querySelector('#modal').addClass('is-hidden')
-    }
+    // showModal() {
+    //     document.querySelector('#modal').removeClass('is-hidden')
+    // }
+    // hideModal() {
+    //     document.querySelector('#modal').addClass('is-hidden')
+    // }
 
     render() {
-        return <div className="columns is-multiline is-gapless is-mobile">
+        return <div className="columns is-multiline is-gapless is-mobile workout-js">
             <div className="column is-4 square1">
                 <div className="container">
                     <TotalTimer time={this.state.totalTime} />
