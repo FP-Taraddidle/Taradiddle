@@ -100,10 +100,10 @@ class Workout extends Component {
             </div>
 
             <div className="column is-4 square2">
-                <img className="is-mobile workoutImage" src="img/exercises/squats.gif" alt="workout1" />
+                <img className="is-mobile workoutImage" src="/img/exercises/squats.gif" alt="workout1" />
             </div>
             <div className="column is-4 square2">
-                <img className="workoutImage" src="img/exercises/leg-raises.gif" alt="workout2" />
+                <img className="workoutImage" src="/img/exercises/leg-raises.gif" alt="workout2" />
             </div>
 
             <div className="column is-4 square3">

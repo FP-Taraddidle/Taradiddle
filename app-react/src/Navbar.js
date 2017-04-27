@@ -8,7 +8,7 @@ class Navbar extends Component {
       <p className="nav-item projectName">
         Taradiddle
       </p>
-      <p className="">
+      <p className="exercise-mouth">
         Exercise more than your mouth
       </p>
     </div>
@@ -19,7 +19,12 @@ class Navbar extends Component {
     </span>
     <div className="nav-right nav-menu">
       {/* <a className="nav-item is-tab">Sign-in</a> */}
-      <a className="nav-item is-tab logout-button">Log out</a>
+      <a className="button sign-up navbar-sign-in" onClick={this.getUser} onClick={() => location.href='/auth/twitter'}>
+            <span className="icon">
+            <i className="fa fa-twitter"></i>
+            </span>
+            <span>Sign-in with Twitter</span>
+        </a>
     </div>
   </div>
 </nav>
