@@ -1,6 +1,6 @@
 require 'twitter'
 class ApplicationController < ActionController::Base
-
+ protect_from_forgery with: :exception
   def current_user
     @current_user ||= User.find_by(token: params[:token])
     # Since user sessions are not created by us, we have to define current user through the oauth token

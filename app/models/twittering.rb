@@ -12,29 +12,11 @@ class Twittering < ApplicationRecord
     end
   end
 
-  def self.pull
-
-    @user = User.all
-    @tweeter = @user.collect { |e|
-      @twitter = Twittering.new
-      @twitter.user = e
-      @twitter.tweets = tweeting
-      @twitter.likes = liking
-      if @twitter.save!
-        @twitter
-      else
-        {error: "@twitter failed to save in Twitterings#Create"}
-      end
-     }
-
-  end
-
   def self.tweeting
     user = User.find(@twitter.user_id)
     tweet_arr = twitter_client.user_timeline(user.name, count: 200).collect{|i| i.created_at}
     @tweets = tweet_arr.select { |i| i if i > 24.hours.ago }.count
   end
-
 
   def self.liking
     user = User.find(@twitter.user_id)
@@ -48,4 +30,20 @@ class Twittering < ApplicationRecord
     # a created at dat greater than the specified time
     # count those values
   end
+  
+  def self.pull
+    @user = User.all
+    @tweeter = @user.collect do |e|
+      @twitter = Twittering.new
+      @twitter.user = e
+      @twitter.tweets = tweeting
+      @twitter.likes = liking
+      if @twitter.save!
+        @twitter
+      else
+        {error: "@twitter failed to save in Twitterings#Create"}
+      end
+    end
+  end
+
 end

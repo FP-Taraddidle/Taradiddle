@@ -48,6 +48,7 @@ gem 'figaro'
 gem 'active_model_serializers'
 gem 'omniauth-twitter'
 gem 'twitter'
+gem 'omniauth-instagram', github: 'ropiku/omniauth-instagram'
 
 
 

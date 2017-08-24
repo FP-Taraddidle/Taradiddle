@@ -11,8 +11,8 @@ class BlocksController < ApplicationController
 
 private
 
-def params_permit
-  params.permit
-end
+  def params_permit
+    params.permit
+  end
 
 end
