@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+ # root "/"
   scope :api do
     resources :twitterings
     resources :users
@@ -14,7 +14,9 @@ Rails.application.routes.draw do
   end
 
   get   '/login', :to => 'sessions#new', :as => :login
+  get '/logout', :to => 'sessions#destroy'
   match '/auth/:provider/callback', :to => 'sessions#create', via: 'get'
+  # get '/auth/instagram' => 'sessions#create'
   match '/auth/failure', :to => 'sessions#failure', via: 'get'
   post '/tweeting/:id' => 'twitterings#tweeting'
 
